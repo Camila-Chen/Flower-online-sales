@@ -1,6 +1,9 @@
 import React, { PureComponent } from "react";
 import axios from "axios";
-import Card from "../components/Card";
+import Card from "./Card";
+import { Link } from "react-router-dom";
+import "../styles/categories.css";
+
 class Category extends PureComponent {
   constructor(props) {
     super(props);
@@ -23,6 +26,14 @@ class Category extends PureComponent {
             />
           );
         })}
+        <div className="add">
+          <button
+            type="button"
+            className="btn btn-outline-primary btn-lg  btn-text "
+          >
+            <Link to="/categories/add">添加</Link>
+          </button>
+        </div>
       </div>
     );
   }

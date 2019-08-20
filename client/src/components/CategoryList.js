@@ -29,7 +29,7 @@ class CategoryList extends React.Component {
     axios
       .get("/admin/categories")
       .then((response, data) => {
-        console.log([response.data]);
+        // console.log([response.data]);
         this.setState({
           categories: response.data
         });

@@ -1,0 +1,10 @@
+.add {
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+
+.btn-text {
+    padding: 2% 40%;
+    border-radius: 50px;
+}

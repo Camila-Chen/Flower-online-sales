@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import "../styles/card.css";
+import { Link } from "react-router-dom";
 
 class Card extends PureComponent {
   constructor(props) {
@@ -7,33 +8,18 @@ class Card extends PureComponent {
   }
 
   render() {
-    const { openId, parentId } = this.props;
     return (
-      <div className="card gap">
-        <div className="card-header d-flex flex-row justify-content-between">
-          {/* <h2 className="mb-0"> */}
-          <button
-            className="btn btn-link  "
-            type="button"
-            data-toggle="collapse"
-            data-target={"#" + openId}
-            aria-expanded="false"
-            aria-controls={openId}
-          >
-            {this.props.name}
-          </button>
-          <div className="update ">
-            <p>编辑</p>
+      <div>
+        <div className="card gap">
+          <div className="card-header d-flex flex-row justify-content-between">
+            <button className="btn btn-link" type="button">
+              {this.props.name}
+            </button>
+            <div className="update">
+              <Link to={"/categories/update/" + this.props.openId}>编辑</Link>
+            </div>
           </div>
-          {/* </h2> */}
         </div>
-
-        <div
-          id={openId}
-          className="collapse"
-          aria-labelledby={openId}
-          data-parent={`#${parentId}`}
-        />
       </div>
     );
   }
