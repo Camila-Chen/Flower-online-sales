@@ -1,0 +1,24 @@
+.gap {
+    background-color: white;
+    margin: 5%;
+}
+
+.card-header {
+    padding: 0;
+    background-color: white;
+}
+
+#categories {
+    background-color: rgba(0, 0, 0, .03);
+}
+
+.card {
+    margin: 4%;
+}
+
+.update {
+    padding-right: 3%;
+    margin-top: 2%;
+    margin-bottom: -2%;
+    color: #007bff;
+}

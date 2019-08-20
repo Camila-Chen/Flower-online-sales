@@ -1,0 +1,10 @@
+.headpic {
+    max-width: 100%;
+}
+
+.content-container {
+    /* padding-top: 57px; */
+    background-color: #fff;
+    max-width: 96%;
+    margin-left: 2%;
+}

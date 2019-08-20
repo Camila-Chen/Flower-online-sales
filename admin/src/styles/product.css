@@ -1,0 +1,38 @@
+.suit {
+    margin-top: 5%;
+    margin-left: 4%;
+}
+
+.intro {
+    font-size: 0.9rem;
+    color: grey;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+.card-title {
+    margin-bottom: 1.6rem;
+}
+
+.buy {
+    background-color: #f1f1f1;
+}
+
+.price {
+    margin-bottom: 0;
+}
+
+.button {
+    background-color: #fafafa;
+}
+
+.number {
+    margin-top: 4%;
+}
+
+.operate {
+    margin: auto;
+    padding-left: 22%;
+}
