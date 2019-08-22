@@ -1,14 +1,37 @@
 {
   "categories": [
     {
-      "name": "chentian",
-      "id": "catg_4f64b302-f986-495a-9601-f956fbedbd45"
+      "name": "佳力图",
+      "id": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb"
     },
     {
-      "name": "yijia",
-      "id": "catg_b44ccb8d-9ac9-400f-a048-8eb2a448f73b"
+      "name": "chent",
+      "id": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e"
+    },
+    {
+      "name": "123",
+      "id": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22"
+    },
+    {
+      "name": "高山玫瑰",
+      "id": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8"
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "name": "佳力图",
+      "stock": "3",
+      "price": "88",
+      "brief": "60cm，10支/扎",
+      "id": "prod_70bf3b42-2264-47ba-9fe3-37a347b6701c"
+    },
+    {
+      "name": "1",
+      "stock": "1",
+      "price": "1",
+      "brief": "1",
+      "id": "prod_03ed3e8b-0cf9-4df8-989e-f0e08c0ac9e7"
+    }
+  ],
   "orders": []
 }

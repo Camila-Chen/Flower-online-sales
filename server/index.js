@@ -68,19 +68,6 @@ app.post(
   })
 );
 
-app.get(
-  "/admin/products",
-  asyncMiddleware(async (req, res) => {
-    let products = await prodCtrl.getAllProducts();
-    const cates = await catgCtrl.getCategories();
-    products = products.map(p => ({
-      ...p,
-      category: cates.find(c => c.id === p.catg_id)
-    }));
-    res.send(products);
-  })
-);
-
 // category
 app.get(
   "/admin/categories",
@@ -111,6 +98,54 @@ app.delete(
   "/admin/categories/:id",
   asyncMiddleware(async (req, res) => {
     await catgCtrl.deleteCategory(req.params.id);
+    res.send(true);
+  })
+);
+
+// products
+
+app.get(
+  "/admin/products",
+  asyncMiddleware(async (req, res) => {
+    let products = await prodCtrl.getAllProducts();
+    const cates = await catgCtrl.getCategories();
+    products = products.map(p => ({
+      ...p,
+      category: cates.find(c => c.id === p.catg_id)
+    }));
+    res.send(products);
+  })
+);
+
+app.get(
+  "/admin/products/:id",
+  asyncMiddleware(async (req, res) => {
+    let product = await prodCtrl.getProductById(req.params.id);
+    res.send(product);
+  })
+);
+
+app.post(
+  "/admin/products",
+  asyncMiddleware(async (req, res) => {
+    await prodCtrl.addProduct(req.body);
+    res.send(true);
+  })
+);
+
+app.put(
+  "/admin/products/:id",
+  asyncMiddleware(async (req, res) => {
+    req.body.id = req.params.id;
+    await prodCtrl.updateProduct(req.body);
+    res.send(true);
+  })
+);
+
+app.delete(
+  "/admin/products/:id",
+  asyncMiddleware(async (req, res) => {
+    await prodCtrl.deleteProduct(req.params.id);
     res.send(true);
   })
 );

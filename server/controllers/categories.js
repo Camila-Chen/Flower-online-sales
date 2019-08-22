@@ -18,7 +18,8 @@ async function updateCategory(val) {
 }
 
 async function deleteCategory(id) {
-  return db.categories.remove({ id });
+  console.log(id);
+  return db.categories.remove({ id }).write();
 }
 
 module.exports = {

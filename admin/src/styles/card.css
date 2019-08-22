@@ -17,6 +17,23 @@ body {
 }
 
 .update {
-    margin: 2% 2% -2% 0;
+    /* margin: 2% 2% -2% 0; */
     color: #007bff;
+}
+
+.operate {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete>.a {
+    color: red;
+}
+
+.nameId {
+    word-wrap: break-word;
+    padding-left: 0;
 }

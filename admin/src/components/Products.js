@@ -1,0 +1,61 @@
+import React, { PureComponent } from "react";
+import "../styles/product.css";
+import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+class Product extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      products: []
+    };
+  }
+
+  render() {
+    return (
+      <div className="products">
+        {this.state.products.map((item, index) => {
+          return (
+            <ProductCard
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              stock={item.stock}
+              price={item.price}
+              brief={item.brief}
+            />
+          );
+        })}
+        <div className="add">
+          <button
+            type="button"
+            className="btn btn-outline-primary btn-lg  btn-text "
+          >
+            <Link to="/products/add">添加</Link>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    axios
+      .get("/admin/products")
+      .then((response, data) => {
+        console.log([response.data]);
+
+        this.setState({
+          products: response.data
+        });
+      })
+
+      .catch(function(error) {
+        console.log(error);
+        alert(error.message);
+      });
+  }
+}
+
+export default Product;

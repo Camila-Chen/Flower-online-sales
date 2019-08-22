@@ -51,7 +51,7 @@ class CategoriesAdd extends PureComponent {
             className="form-control"
             id="basic-url"
             value={this.state.name}
-            aria-describedby="basic-addon3"
+            // aria-describedby="basic-addon3"
           />
         </div>
         <div className="save">
