@@ -125,6 +125,14 @@ app.get(
   })
 );
 
+app.get(
+  "/admin/products/:id",
+  asyncMiddleware(async (req, res) => {
+    let product = await prodCtrl.getProductsByCategory(req.params.id);
+    res.send(product);
+  })
+);
+
 app.post(
   "/admin/products",
   asyncMiddleware(async (req, res) => {

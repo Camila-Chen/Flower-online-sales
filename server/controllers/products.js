@@ -27,7 +27,7 @@ function getProductById(prod_id) {
 }
 
 function getProductsByCategory(catg_id) {
-  return db.products.filter({ catg_id }).value();
+  return db.products.find({ id: catg_id }).value();
 }
 
 module.exports = {

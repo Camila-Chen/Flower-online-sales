@@ -36,3 +36,8 @@ h5 {
     margin: auto;
     padding-left: 22%;
 }
+
+.add {
+    position: fixed;
+    bottom: 10%;
+}

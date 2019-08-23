@@ -12,7 +12,7 @@ class ProductCard extends PureComponent {
 
   render() {
     return (
-      <div className="card mb-3 card-height">
+      <div className="card mb-3 ">
         <div className="row no-gutters">
           <div className="col-sm-3 col-3 suit">
             <img

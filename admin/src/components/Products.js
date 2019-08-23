@@ -15,19 +15,21 @@ class Product extends PureComponent {
 
   render() {
     return (
-      <div className="products">
-        {this.state.products.map((item, index) => {
-          return (
-            <ProductCard
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              stock={item.stock}
-              price={item.price}
-              brief={item.brief}
-            />
-          );
-        })}
+      <div>
+        <div className="products">
+          {this.state.products.map((item, index) => {
+            return (
+              <ProductCard
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                stock={item.stock}
+                price={item.price}
+                brief={item.brief}
+              />
+            );
+          })}
+        </div>
         <div className="add">
           <button
             type="button"

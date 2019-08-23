@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import axios from "axios";
+import ProductByCategory from "./ProductByCategory";
 
 class ProductsUpdate extends PureComponent {
   constructor(props) {
@@ -10,7 +11,8 @@ class ProductsUpdate extends PureComponent {
       name: "",
       stock: "",
       price: "",
-      brief: ""
+      brief: "",
+      categoryId: ""
     };
   }
 
@@ -35,10 +37,16 @@ class ProductsUpdate extends PureComponent {
         this.setState({
           brief: e.target.value
         });
+        break;
+      case "categoryId":
+        this.setState({
+          categoryId: e.target.value
+        });
     }
   };
 
   componentDidMount() {
+    debugger;
     axios
       .get("/admin/products/" + this.props.match.params.id)
       .then((response, data) => {
@@ -48,7 +56,8 @@ class ProductsUpdate extends PureComponent {
           name: response.data.name,
           stock: response.data.stock,
           price: response.data.price,
-          brief: response.data.brief
+          brief: response.data.brief,
+          categoryId: response.data.categoryId
         });
       })
 
@@ -68,7 +77,8 @@ class ProductsUpdate extends PureComponent {
         name: this.state.name,
         stock: this.state.stock,
         price: this.state.price,
-        brief: this.state.brief
+        brief: this.state.brief,
+        categoryId: this.state.categoryId
       })
       .then(() => {
         this.setState({});
@@ -79,6 +89,7 @@ class ProductsUpdate extends PureComponent {
       });
   };
   render() {
+    debugger;
     return (
       <form onSubmit={this.handleClick}>
         <p className="basic-url basic-title ">更改产品信息</p>
@@ -96,7 +107,12 @@ class ProductsUpdate extends PureComponent {
             className="form-control"
           />
         </div>
-
+        <div className="input-group mb-3 add-product">
+          <ProductByCategory
+            _changeValue={this._changeValue}
+            categoryId={this.state.categoryId}
+          />
+        </div>
         <div className="input-group mb-3 add-product">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon3">

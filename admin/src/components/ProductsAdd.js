@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import "../styles/productsAdd.css";
 import axios from "axios";
+import ProductByCategory from "./ProductByCategory";
 
 class ProductsAdd extends PureComponent {
   constructor(props) {
@@ -11,14 +12,12 @@ class ProductsAdd extends PureComponent {
       name: "",
       stock: "",
       price: "",
-      brief: ""
+      brief: "",
+      categoryId: ""
     };
   }
 
   _ChangeValue = e => {
-    // var obj ={...this.state}
-    // obj[e.target.name]=e.target.value
-    // this.setState(obj)
     switch (e.target.name) {
       case "name":
         this.setState({
@@ -39,9 +38,13 @@ class ProductsAdd extends PureComponent {
         this.setState({
           brief: e.target.value
         });
+        break;
+      case "categoryId":
+        this.setState({
+          categoryId: e.target.value
+        });
     }
   };
-
   handleClick = e => {
     e.preventDefault();
     this.setState({ isClickable: false });
@@ -50,14 +53,16 @@ class ProductsAdd extends PureComponent {
         name: this.state.name,
         stock: this.state.stock,
         price: this.state.price,
-        brief: this.state.brief
+        brief: this.state.brief,
+        categoryId: this.state.categoryId
       })
       .then((response, data) => {
         this.setState({
           name: response.data.name,
-          stock: response.data.name,
-          price: response.data.name,
-          brief: response.data.name
+          stock: response.data.stock,
+          price: response.data.price,
+          brief: response.data.brief,
+          categoryId: response.data.categoryId
         });
         window.location.href = "/products";
       })
@@ -102,7 +107,7 @@ class ProductsAdd extends PureComponent {
             className="form-control"
           />
         </div>
-
+        <ProductByCategory _ChangeValue={this._ChangeValue} />
         <div className="input-group mb-3 add-product">
           <div className="input-group-prepend">
             <span className="input-group-text">产品价格</span>
