@@ -1,0 +1,9 @@
+.shopping-cart {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-logo {
+    background-color: lightslategrey;
+
+}

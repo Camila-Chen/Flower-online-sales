@@ -1,0 +1,27 @@
+.card-text {
+    background-color: lightgray;
+}
+
+.card-contain {
+    padding-top: 0;
+}
+
+.price {
+    margin-bottom: 0;
+}
+
+.button {
+    background-color: white;
+}
+
+
+
+.cart-number {
+    margin-top: 4%;
+    padding-left: 0;
+}
+
+.operate {
+    margin: auto;
+    padding-left: 22%;
+}

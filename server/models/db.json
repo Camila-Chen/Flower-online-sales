@@ -1,38 +1,54 @@
 {
   "categories": [
     {
-      "name": "佳力图",
+      "name": "肯尼亚普通农场玫瑰",
       "id": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb"
     },
     {
-      "name": "chent",
+      "name": "厄瓜多尔满天星系列",
       "id": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e"
     },
     {
-      "name": "123",
+      "name": "南非花材",
       "id": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22"
     },
     {
-      "name": "高山玫瑰",
+      "name": "荷兰花材",
       "id": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8"
     }
   ],
   "products": [
     {
-      "name": "玫瑰",
-      "stock": "10",
-      "price": "100",
-      "brief": "ok",
-      "categoryId": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8",
+      "name": "回忆",
+      "stock": "3",
+      "price": "88",
+      "brief": "10支/扎，60cm",
+      "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
       "id": "prod_531b948e-71c0-4735-84b9-7f86e379911f"
     },
     {
-      "name": "满天星",
-      "stock": "33",
-      "price": "123",
-      "brief": "ok",
-      "categoryId": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22",
+      "name": "满天星~粉",
+      "stock": "6",
+      "price": "100",
+      "brief": "20支/扎，800克左右/扎",
+      "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
       "id": "prod_b96840cb-5921-4fb4-808a-c92c4adb18f2"
+    },
+    {
+      "name": "粉帝王",
+      "stock": "6",
+      "price": "80",
+      "brief": "1支，杆长60cm",
+      "categoryId": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22",
+      "id": "prod_667a0d39-e467-490e-a55b-abae73b310fa"
+    },
+    {
+      "name": "重瓣红色郁金香",
+      "stock": "2",
+      "price": "45",
+      "brief": "10支/扎",
+      "categoryId": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8",
+      "id": "prod_73185113-f5ee-4ea5-a677-5f245f413917"
     }
   ],
   "orders": []

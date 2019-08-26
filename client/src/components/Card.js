@@ -1,12 +1,30 @@
 import React, { PureComponent } from "react";
 import "../styles/card.css";
 import Product from "./Product";
+import axios from "axios";
 
 class Card extends PureComponent {
   constructor(props) {
     super(props);
+    this.state = {
+      products: []
+    };
   }
 
+  componentDidMount() {
+    axios
+      .get("/admin/products/category/" + this.props.openId)
+      .then(response => {
+        this.setState({
+          products: response.data
+        });
+        // console.log(response);
+      })
+
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
   render() {
     const { openId, parentId } = this.props;
     return (
@@ -33,7 +51,17 @@ class Card extends PureComponent {
           data-parent={`#${parentId}`}
         >
           <div className="card-body">
-            <Product />
+            {this.state.products.map((item, index) => {
+              return (
+                <Product
+                  key={item.id}
+                  name={item.name}
+                  brief={item.brief}
+                  price={item.price}
+                  stock={item.stock}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

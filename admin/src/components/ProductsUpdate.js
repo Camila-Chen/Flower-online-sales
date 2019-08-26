@@ -46,7 +46,7 @@ class ProductsUpdate extends PureComponent {
   };
 
   componentDidMount() {
-    debugger;
+    // debugger;
     axios
       .get("/admin/products/" + this.props.match.params.id)
       .then((response, data) => {
@@ -89,7 +89,7 @@ class ProductsUpdate extends PureComponent {
       });
   };
   render() {
-    debugger;
+    // debugger;
     return (
       <form onSubmit={this.handleClick}>
         <p className="basic-url basic-title ">更改产品信息</p>

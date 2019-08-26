@@ -33,7 +33,7 @@ class CategoryList extends React.Component {
         this.setState({
           categories: response.data
         });
-        console.log(response);
+        // console.log(response);
       })
 
       .catch(function(error) {

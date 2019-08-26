@@ -126,7 +126,7 @@ app.get(
 );
 
 app.get(
-  "/admin/products/:id",
+  "/admin/products/category/:id",
   asyncMiddleware(async (req, res) => {
     let product = await prodCtrl.getProductsByCategory(req.params.id);
     res.send(product);

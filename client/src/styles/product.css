@@ -28,6 +28,13 @@ h5 {
     background-color: #fafafa;
 }
 
+.button-input {
+    background-color: #fafafa;
+    width: 26px;
+    height: 29px;
+    text-align: center;
+}
+
 .number {
     margin-top: 4%;
 }
