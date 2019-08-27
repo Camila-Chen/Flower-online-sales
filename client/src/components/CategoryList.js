@@ -15,6 +15,7 @@ class CategoryList extends React.Component {
         {this.state.categories.map((item, index) => {
           return (
             <Card
+              changeOrder={this.props.changeOrder}
               key={item.id}
               name={item.name}
               parentId="categories"

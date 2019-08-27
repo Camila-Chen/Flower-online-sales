@@ -54,6 +54,8 @@ class Card extends PureComponent {
             {this.state.products.map((item, index) => {
               return (
                 <Product
+                  changeOrder={this.props.changeOrder}
+                  categoryName={this.props.name}
                   key={item.id}
                   name={item.name}
                   brief={item.brief}

@@ -19,9 +19,13 @@ class Product extends PureComponent {
   };
 
   addClick = () => {
-    this.setState({
-      n: this.state.n + 1
-    });
+    // debugger;
+    this.setState(
+      {
+        n: this.state.n + 1
+      },
+      () => this.props.changeOrder(this.props, this.state.n)
+    );
   };
 
   reduceClick = () => {

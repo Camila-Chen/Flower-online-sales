@@ -14,6 +14,12 @@
     background-color: white;
 }
 
+.button-input {
+    background-color: #fafafa;
+    width: 26px;
+    height: 29px;
+    text-align: center;
+}
 
 
 .cart-number {

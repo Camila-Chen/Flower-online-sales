@@ -60,7 +60,14 @@ class Cart extends PureComponent {
                 </button>
               </div>
               <div className="modal-body">
-                <CartCard />
+                <CartCard
+                  name={this.props.name}
+                  brief={this.props.brief}
+                  price={this.props.price}
+                  stock={this.props.stock}
+                  categoryName={this.props.categoryName}
+                  n={this.props.n}
+                />
               </div>
               <div className="modal-footer d-flex justify-content-between">
                 <div className="commodity-count">
