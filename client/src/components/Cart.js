@@ -5,18 +5,7 @@ import CartCard from "./CartCard";
 class Cart extends PureComponent {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   categories: [],
-    //   n: ""
-    // };
   }
-
-  // onClick = (categories, n) => {
-  //   this.setState({
-  //     categories,
-  //     n
-  //   });
-  // };
 
   render() {
     return (
@@ -60,7 +49,12 @@ class Cart extends PureComponent {
                 </button>
               </div>
               <div className="modal-body">
+                {/* {this.state.products.map((item, index) => { */}
+                {/* return ( */}
                 <CartCard
+                  addOrder={this.props.addOrder}
+                  reduceOrder={this.props.reduceOrder}
+                  changeOrder={this.props.changeOrder}
                   name={this.props.name}
                   brief={this.props.brief}
                   price={this.props.price}
@@ -68,6 +62,8 @@ class Cart extends PureComponent {
                   categoryName={this.props.categoryName}
                   n={this.props.n}
                 />
+                {/* );
+                })} */}
               </div>
               <div className="modal-footer d-flex justify-content-between">
                 <div className="commodity-count">

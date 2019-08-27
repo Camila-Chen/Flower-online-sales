@@ -10,7 +10,7 @@ class ProductsAdd extends PureComponent {
     this.state = {
       isClickable: true,
       name: "",
-      stock: "",
+      stock: 0,
       price: "",
       brief: "",
       categoryId: ""
@@ -51,8 +51,8 @@ class ProductsAdd extends PureComponent {
     axios
       .post("/admin/products", {
         name: this.state.name,
-        stock: this.state.stock,
-        price: this.state.price,
+        stock: parseInt(this.state.stock),
+        price: parseFloat(this.state.price),
         brief: this.state.brief,
         categoryId: this.state.categoryId
       })

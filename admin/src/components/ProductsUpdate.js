@@ -75,8 +75,8 @@ class ProductsUpdate extends PureComponent {
     axios
       .put("/admin/products/" + this.props.match.params.id, {
         name: this.state.name,
-        stock: this.state.stock,
-        price: this.state.price,
+        stock: parseInt(this.state.stock),
+        price: parseFloat(this.state.price),
         brief: this.state.brief,
         categoryId: this.state.categoryId
       })

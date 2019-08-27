@@ -18,21 +18,42 @@ class App extends PureComponent {
       stock: "",
       price: "",
       categoryName: "",
-      n: "",
+      n: 0,
       productOrder: []
     };
   }
 
-  changeOrder = (productOrder, n) => {
+  addOrder = productOrder => {
     // debugger;
     this.setState({
-      productOrder: productOrder,
+      n: this.state.n + 1,
       name: productOrder.name,
       brief: productOrder.brief,
       stock: productOrder.stock,
       price: productOrder.price,
-      categoryName: productOrder.categoryName,
-      n: n
+      categoryName: productOrder.categoryName
+    });
+  };
+
+  reduceOrder = productOrder => {
+    this.setState({
+      n: this.state.n - 1,
+      name: productOrder.name,
+      brief: productOrder.brief,
+      stock: productOrder.stock,
+      price: productOrder.price,
+      categoryName: productOrder.categoryName
+    });
+  };
+
+  changeOrder = (productOrder, n) => {
+    this.setState({
+      n: n,
+      name: productOrder.name,
+      brief: productOrder.brief,
+      stock: productOrder.stock,
+      price: productOrder.price,
+      categoryName: productOrder.categoryName
     });
   };
 
@@ -48,10 +69,23 @@ class App extends PureComponent {
 
             <div className="product-display container-fluid">
               <hr className="dotted-line" />
-              <CategoryList changeOrder={this.changeOrder} />
+              <CategoryList
+                reduceOrder={this.reduceOrder}
+                addOrder={this.addOrder}
+                changeOrder={this.changeOrder}
+                name={this.state.name}
+                price={this.state.price}
+                brief={this.state.brief}
+                stock={this.state.stock}
+                categoryName={this.state.categoryName}
+                n={this.state.n}
+              />
             </div>
 
             <Cart
+              addOrder={this.addOrder}
+              changeOrder={this.changeOrder}
+              reduceOrder={this.reduceOrder}
               name={this.state.name}
               price={this.state.price}
               brief={this.state.brief}

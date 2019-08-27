@@ -55,6 +55,14 @@ class Card extends PureComponent {
               return (
                 <Product
                   changeOrder={this.props.changeOrder}
+                  addOrder={this.props.addOrder}
+                  reduceOrder={this.props.reduceOrder}
+                  name={this.props.name}
+                  brief={this.props.brief}
+                  stock={this.props.stock}
+                  price={this.props.price}
+                  categoryName={this.props.categoryName}
+                  n={this.props.n}
                   categoryName={this.props.name}
                   key={item.id}
                   name={item.name}

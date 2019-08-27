@@ -5,33 +5,26 @@ class CartCard extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      // n: this.props.n + 1
-      // n: 0
-    };
+    this.state = {};
   }
 
-  // addClick = () => {
-  //   debugger;
+  addClick = () => {
+    this.props.addOrder(this.props);
+  };
+  reduceClick = () => {
+    this.props.reduceOrder(this.props);
+  };
 
-  //   this.setState({
-  //     n: this.props.n
-  //   });
-  // };
-
-  // reduceClick = () => {
-  //   this.setState({
-  //     n: this.props.n - 1
-  //   });
-  // };
-
-  // handleChange = e => {
-  //   this.setState({
-  //     n: e.target.value
-  //   });
-  // };
-
+  handleChange = e => {
+    // debugger;
+    this.props.changeOrder(this.props, e.target.value);
+  };
   render() {
+    console.log(
+      this.props.n <= this.props.stock,
+      this.props.n,
+      this.props.stock
+    );
     return (
       <div>
         <div className="card-head">
@@ -52,27 +45,24 @@ class CartCard extends PureComponent {
               type="button"
               className="button"
               onClick={this.reduceClick}
-              disabled={this.state.n <= 0}
+              disabled={this.props.n <= 0}
             >
               -
             </button>
+
             <input
               type="number"
               className="button-input"
               onChange={this.handleChange}
-              value={
-                this.props.n
-                // this.state.n <= this.props.stock
-                //   ? this.state.n
-                //   : this.props.stock
-              }
+              max={this.props.stock}
+              value={this.props.n}
             />
 
             <button
               type="button"
               className="button"
               onClick={this.addClick}
-              disabled={this.state.n >= this.props.stock}
+              disabled={this.props.n >= this.props.stock}
             >
               +
             </button>

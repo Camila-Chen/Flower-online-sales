@@ -4,34 +4,19 @@ import "../styles/product.css";
 class Product extends PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      n: 0
-    };
   }
-  handleChange = e => {
-    // console.log(this.props);
-
-    // console.log(e.target.value);
-    this.setState({
-      n: e.target.value
-    });
-  };
 
   addClick = () => {
     // debugger;
-    this.setState(
-      {
-        n: this.state.n + 1
-      },
-      () => this.props.changeOrder(this.props, this.state.n)
-    );
+
+    this.props.addOrder(this.props);
   };
 
   reduceClick = () => {
-    this.setState({
-      n: this.state.n - 1
-    });
+    this.props.reduceOrder(this.props);
+  };
+  handleChange = e => {
+    this.props.changeOrder(this.props, e.target.value);
   };
 
   render() {
@@ -67,7 +52,7 @@ class Product extends PureComponent {
               type="button"
               className="button"
               onClick={this.reduceClick}
-              disabled={this.state.n <= 0}
+              disabled={this.props.n <= 0}
             >
               -
             </button>
@@ -76,8 +61,8 @@ class Product extends PureComponent {
               className="button-input"
               onChange={this.handleChange}
               value={
-                this.state.n <= this.props.stock
-                  ? this.state.n
+                this.props.n <= this.props.stock
+                  ? this.props.n
                   : this.props.stock
               }
             />
@@ -86,7 +71,7 @@ class Product extends PureComponent {
               type="button"
               className="button"
               onClick={this.addClick}
-              disabled={this.state.n >= this.props.stock}
+              disabled={this.props.n >= this.props.stock}
             >
               +
             </button>
