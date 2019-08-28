@@ -8,7 +8,6 @@ function Tacking() {
       <div className="order-detail">
         <a
           className="order-title2"
-          href="https://jinshuju.net/f/Ros6Ch/s/0gEce8"
           rel="noopener noreferrer"
           target="_blank"
           title="订单查询系统"

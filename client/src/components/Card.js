@@ -18,7 +18,7 @@ class Card extends PureComponent {
         this.setState({
           products: response.data
         });
-        // console.log(response);
+        console.log(this.state.products);
       })
 
       .catch(function(error) {
@@ -57,18 +57,8 @@ class Card extends PureComponent {
                   changeOrder={this.props.changeOrder}
                   addOrder={this.props.addOrder}
                   reduceOrder={this.props.reduceOrder}
-                  name={this.props.name}
-                  brief={this.props.brief}
-                  stock={this.props.stock}
-                  price={this.props.price}
                   categoryName={this.props.categoryName}
-                  n={this.props.n}
-                  categoryName={this.props.name}
-                  key={item.id}
-                  name={item.name}
-                  brief={item.brief}
-                  price={item.price}
-                  stock={item.stock}
+                  item={item}
                 />
               );
             })}

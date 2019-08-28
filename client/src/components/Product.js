@@ -8,7 +8,6 @@ class Product extends PureComponent {
 
   addClick = () => {
     // debugger;
-
     this.props.addOrder(this.props);
   };
 
@@ -20,6 +19,7 @@ class Product extends PureComponent {
   };
 
   render() {
+    const { n = 0 } = this.props;
     return (
       <div className="card mb-3 ">
         <div className="row no-gutters">
@@ -32,18 +32,18 @@ class Product extends PureComponent {
           </div>
           <div className="col-sm-8 col-8 ">
             <div className="card-body">
-              <h5 className="card-title ">{this.props.name}</h5>
-              <p className="intro">{this.props.brief}</p>
+              <h5 className="card-title ">{this.props.item.name}</h5>
+              <p className="intro">{this.props.item.brief}</p>
             </div>
           </div>
         </div>
         <div className="buy d-flex justify-content-end">
           <div className="number col-sm-6 col-6 ">
             <div className="row-price">
-              <p className="price">¥ {this.props.price}</p>
+              <p className="price">¥ {this.props.item.price}</p>
             </div>
             <div className="row-stock">
-              <p className="stock ">库存{this.props.stock}件</p>
+              <p className="stock ">库存{this.props.item.stock}件</p>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ class Product extends PureComponent {
               type="button"
               className="button"
               onClick={this.reduceClick}
-              disabled={this.props.n <= 0}
+              disabled={n <= 0}
             >
               -
             </button>
@@ -60,18 +60,14 @@ class Product extends PureComponent {
               type="number"
               className="button-input"
               onChange={this.handleChange}
-              value={
-                this.props.n <= this.props.stock
-                  ? this.props.n
-                  : this.props.stock
-              }
+              value={n <= this.props.item.stock ? n : this.props.item.stock}
             />
 
             <button
               type="button"
               className="button"
               onClick={this.addClick}
-              disabled={this.props.n >= this.props.stock}
+              disabled={n >= this.props.item.stock}
             >
               +
             </button>

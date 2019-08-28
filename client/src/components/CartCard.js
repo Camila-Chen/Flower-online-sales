@@ -20,11 +20,6 @@ class CartCard extends PureComponent {
     this.props.changeOrder(this.props, e.target.value);
   };
   render() {
-    console.log(
-      this.props.n <= this.props.stock,
-      this.props.n,
-      this.props.stock
-    );
     return (
       <div>
         <div className="card-head">
