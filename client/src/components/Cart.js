@@ -9,6 +9,7 @@ class Cart extends PureComponent {
   }
 
   render() {
+    // console.log(this.props.orderItems);
     return (
       <div>
         <button data-toggle="modal" data-target="#exampleModalCenter">
@@ -50,17 +51,17 @@ class Cart extends PureComponent {
                 </button>
               </div>
               <div className="modal-body">
-                {this.props.productOrder.map((item, index) => {
+                {this.props.orderItems.map((item, index) => {
                   return (
                     <CartCard
                       addOrder={this.props.addOrder}
                       reduceOrder={this.props.reduceOrder}
                       changeOrder={this.props.changeOrder}
+                      categoryName={item.categoryName}
                       name={item.name}
                       price={item.price}
                       stock={item.stock}
-                      categoryName={item.categoryName}
-                      n={item.n}
+                      n={item.number}
                       key={item.id}
                     />
                   );

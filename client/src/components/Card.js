@@ -18,7 +18,6 @@ class Card extends PureComponent {
         this.setState({
           products: response.data
         });
-        console.log(this.state.products);
       })
 
       .catch(function(error) {
@@ -54,10 +53,12 @@ class Card extends PureComponent {
             {this.state.products.map((item, index) => {
               return (
                 <Product
+                  key={item.id}
+                  orderItems={this.props.orderItems}
                   changeOrder={this.props.changeOrder}
                   addOrder={this.props.addOrder}
                   reduceOrder={this.props.reduceOrder}
-                  categoryName={this.props.categoryName}
+                  categoryName={this.props.name}
                   item={item}
                 />
               );

@@ -18,6 +18,7 @@ class CategoryList extends React.Component {
               addOrder={this.props.addOrder}
               changeOrder={this.props.changeOrder}
               reduceOrder={this.props.reduceOrder}
+              orderItems={this.props.orderItems}
               key={item.id}
               name={item.name}
               parentId="categories"

@@ -6,7 +6,6 @@ import Tacking from "./components/Tacking";
 import Head from "./components/Head";
 import axios from "axios";
 import Cart from "./components/Cart";
-import Transport from "./components/Transport";
 
 axios.defaults.baseURL = "http://localhost:9000";
 
@@ -14,35 +13,48 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      productOrder: []
+      orderItems: []
     };
   }
 
-  addOrder = productOrder => {
-    // this.state.productOrder.some(el => el.id === productOrder.productId)
-    //   ? this.state.n + 1
-    //   : this.state.productOrder.push(productOrder, this.state.n);
-    // // this.state.productOrder.productId === productOrder.productId
-    // //   ? this.state.n + 1
-    // //   : this.state.productOrder.push(productOrder, this.state.n);
+  addOrder = (product, categoryName) => {
     // debugger;
-    // this.setState({
-    //   // n: this.state.n + 1,
-    //   productOrder: this.state.productOrder
-    // });
+
+    if (this.state.orderItems.some(el => el.id === product.id)) {
+      var found = this.state.orderItems.find(element => {
+        return element.id === product.id;
+      });
+      found.number = found.number + 1;
+
+      this.setState({
+        orderItems: [...this.state.orderItems]
+      });
+    } else {
+      const item = product;
+      item.number = 1;
+      item.categoryName = categoryName;
+      const items = [...this.state.orderItems];
+      items.push(item);
+      // console.log(items);
+      this.setState({
+        orderItems: items,
+        categoryName: categoryName
+      });
+    }
   };
 
-  reduceOrder = productOrder => {
-    this.setState({
-      n: this.state.n - 1,
-      productOrder: this.state.productOrder,
-      productId: productOrder.id,
-      name: productOrder.name,
-      brief: productOrder.brief,
-      stock: productOrder.stock,
-      price: productOrder.price,
-      categoryName: productOrder.categoryName
-    });
+  reduceOrder = product => {
+    if (this.state.orderItems.some(el => el.id === product.id)) {
+      var found = this.state.orderItems.find(element => {
+        return element.id === product.id;
+      });
+      found.number = found.number - 1;
+      this.setState({
+        orderItems: [...this.state.orderItems]
+      });
+    } else {
+    }
+    this.setState({});
   };
 
   changeOrder = (productOrder, n) => {
@@ -59,7 +71,7 @@ class App extends PureComponent {
   };
 
   render() {
-    console.log(this.state.productOrder);
+    // console.log();
     return (
       <div>
         <div className="entire-container">
@@ -74,13 +86,7 @@ class App extends PureComponent {
                 reduceOrder={this.reduceOrder}
                 addOrder={this.addOrder}
                 changeOrder={this.changeOrder}
-                productOrder={this.state.productOrder}
-                name={this.state.name}
-                price={this.state.price}
-                brief={this.state.brief}
-                stock={this.state.stock}
-                categoryName={this.state.categoryName}
-                n={this.state.n}
+                orderItems={this.state.orderItems}
               />
             </div>
 
@@ -88,9 +94,9 @@ class App extends PureComponent {
               addOrder={this.addOrder}
               changeOrder={this.changeOrder}
               reduceOrder={this.reduceOrder}
-              productOrder={this.state.productOrder}
+              orderItems={this.state.orderItems}
             />
-            <Transport />
+            {/* <Transport /> */}
           </div>
         </div>
       </div>

@@ -4,11 +4,13 @@ import "../styles/product.css";
 class Product extends PureComponent {
   constructor(props) {
     super(props);
+    this.state = {
+      found: ""
+    };
   }
 
   addClick = () => {
-    // debugger;
-    this.props.addOrder(this.props);
+    this.props.addOrder(this.props.item, this.props.categoryName);
   };
 
   reduceClick = () => {
@@ -19,7 +21,13 @@ class Product extends PureComponent {
   };
 
   render() {
+    // debugger;
     const { n = 0 } = this.props;
+    var found = this.props.orderItems.find(element => {
+      return element.id === this.props.item.id;
+    });
+    var number = found !== undefined ? found.number : 0;
+
     return (
       <div className="card mb-3 ">
         <div className="row no-gutters">
@@ -52,7 +60,7 @@ class Product extends PureComponent {
               type="button"
               className="button"
               onClick={this.reduceClick}
-              disabled={n <= 0}
+              disabled={number <= 0}
             >
               -
             </button>
@@ -60,14 +68,16 @@ class Product extends PureComponent {
               type="number"
               className="button-input"
               onChange={this.handleChange}
-              value={n <= this.props.item.stock ? n : this.props.item.stock}
+              value={
+                number <= this.props.item.stock ? number : this.props.item.stock
+              }
             />
 
             <button
               type="button"
               className="button"
               onClick={this.addClick}
-              disabled={n >= this.props.item.stock}
+              disabled={number >= this.props.item.stock}
             >
               +
             </button>
