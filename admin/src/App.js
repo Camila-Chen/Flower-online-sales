@@ -9,7 +9,9 @@ import CategoriesUpdate from "./components/CategoriesUpdate";
 import CategoriesAdd from "./components/CategoriesAdd";
 import ProductsAdd from "./components/ProductsAdd";
 import ProductsUpdate from "./components/ProductsUpdate";
-axios.defaults.baseURL = "http://localhost:9000";
+var VConsole = require("vconsole/dist/vconsole.min.js");
+var vConsole = new VConsole();
+axios.defaults.baseURL = "http://192.168.2.87:9000";
 
 class App extends PureComponent {
   constructor(props) {

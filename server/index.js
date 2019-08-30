@@ -7,6 +7,7 @@ var cors = require("cors");
 
 const catgCtrl = require("./controllers/categories");
 const prodCtrl = require("./controllers/products");
+const orderCtrl = require("./controllers/orders");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -154,6 +155,15 @@ app.delete(
   "/admin/products/:id",
   asyncMiddleware(async (req, res) => {
     await prodCtrl.deleteProduct(req.params.id);
+    res.send(true);
+  })
+);
+
+//orders
+app.post(
+  "/admin/orders",
+  asyncMiddleware(async (req, res) => {
+    await orderCtrl.addOrder(req.body);
     res.send(true);
   })
 );

@@ -41,3 +41,8 @@ h5 {
     position: fixed;
     bottom: 10%;
 }
+
+.products {
+    height: 80vh;
+    overflow-y: auto;
+}

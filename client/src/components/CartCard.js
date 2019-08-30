@@ -9,29 +9,42 @@ class CartCard extends PureComponent {
   }
 
   addClick = () => {
-    this.props.addOrder(this.props);
+    // debugger;
+    // console.log(this.props.item.number);
+
+    this.props.addOrder(this.props.item);
   };
   reduceClick = () => {
-    this.props.reduceOrder(this.props);
+    this.props.reduceOrder(this.props.item, this.props.productIndex);
   };
 
   handleChange = e => {
-    // debugger;
-    this.props.changeOrder(this.props, e.target.value);
+    this.props.changeOrder(this.props.item, e.target.value);
   };
   render() {
+    // debugger;
+    // console.log(this.props.orderItems);
+    var found = this.props.orderItems.find(element => {
+      return element.id === this.props.item.id;
+    });
+    var number = found !== undefined ? found.number : 0;
+
+    // debugger;
     return (
       <div>
-        <div className="card-head">
-          <p className="card-text">{this.props.categoryName}：</p>
-        </div>
+        {this.props.item.categoryName && (
+          <div className="card-head">
+            <p className="card-text">{this.props.item.categoryName}：</p>
+          </div>
+        )}
+
         <div className="card-contain d-flex justify-content-end">
           <div className="cart-number col-sm-6 col-6 ">
             <div className="row-price">
-              <p className="price">{this.props.name}</p>
+              <p className="price">{this.props.item.name}</p>
             </div>
             <div className="row-stock">
-              <p className="stock text-danger">¥ {this.props.price}</p>
+              <p className="stock text-danger">¥ {this.props.item.price}</p>
             </div>
           </div>
 
@@ -40,7 +53,7 @@ class CartCard extends PureComponent {
               type="button"
               className="button"
               onClick={this.reduceClick}
-              disabled={this.props.n <= 0}
+              disabled={number <= 0}
             >
               -
             </button>
@@ -49,15 +62,16 @@ class CartCard extends PureComponent {
               type="number"
               className="button-input"
               onChange={this.handleChange}
-              max={this.props.stock}
-              value={this.props.n}
+              // max={this.props.item.stock}
+              value={
+                number <= this.props.item.stock ? number : this.props.item.stock
+              }
             />
-
             <button
               type="button"
               className="button"
               onClick={this.addClick}
-              disabled={this.props.n >= this.props.stock}
+              disabled={number >= this.props.item.stock}
             >
               +
             </button>

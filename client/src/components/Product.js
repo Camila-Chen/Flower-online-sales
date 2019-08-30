@@ -4,9 +4,6 @@ import "../styles/product.css";
 class Product extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      found: ""
-    };
   }
 
   addClick = () => {
@@ -14,15 +11,14 @@ class Product extends PureComponent {
   };
 
   reduceClick = () => {
-    this.props.reduceOrder(this.props);
+    this.props.reduceOrder(this.props.item);
   };
   handleChange = e => {
-    this.props.changeOrder(this.props, e.target.value);
+    this.props.changeOrder(this.props.item, e.target.value);
   };
 
   render() {
     // debugger;
-    const { n = 0 } = this.props;
     var found = this.props.orderItems.find(element => {
       return element.id === this.props.item.id;
     });

@@ -41,11 +41,11 @@ class Category extends PureComponent {
     axios
       .get("/admin/categories")
       .then((response, data) => {
-        console.log([response.data]);
+        // console.log([response.data]);
         this.setState({
           categories: response.data
         });
-        console.log(response);
+        // console.log(response);
       })
 
       .catch(function(error) {

@@ -1,15 +1,39 @@
 import React, { PureComponent } from "react";
 import "../styles/cart.css";
 import CartCard from "./CartCard";
+import axios from "axios";
+
+var count;
+var sum;
 
 class Cart extends PureComponent {
   constructor(props) {
     super(props);
+
     // debugger;
   }
 
+  handleClick = () => {
+    axios
+      .post("/admin/orders", {
+        count: count,
+        sum: sum,
+        orderItems: this.props.orderItems
+      })
+      .then(() => {})
+      .catch(function(error) {
+        alert(error.message);
+      });
+  };
+
   render() {
-    // console.log(this.props.orderItems);
+    // debugger;
+    count = this.props.orderItems.reduce(function(prev, cur) {
+      return cur.number + prev;
+    }, 0);
+    sum = this.props.orderItems.reduce(function(prev, cur) {
+      return cur.number * cur.price + prev;
+    }, 0);
     return (
       <div>
         <button data-toggle="modal" data-target="#exampleModalCenter">
@@ -52,16 +76,16 @@ class Cart extends PureComponent {
               </div>
               <div className="modal-body">
                 {this.props.orderItems.map((item, index) => {
+                  // console.log(this.props.orderItems);
+
                   return (
                     <CartCard
+                      orderItems={this.props.orderItems}
                       addOrder={this.props.addOrder}
                       reduceOrder={this.props.reduceOrder}
                       changeOrder={this.props.changeOrder}
-                      categoryName={item.categoryName}
-                      name={item.name}
-                      price={item.price}
-                      stock={item.stock}
-                      n={item.number}
+                      productIndex={index}
+                      item={item}
                       key={item.id}
                     />
                   );
@@ -69,15 +93,22 @@ class Cart extends PureComponent {
               </div>
               <div className="modal-footer d-flex justify-content-between">
                 <div className="commodity-count">
-                  <p>共 1 件商品</p>
+                  <p>共 {count} 件商品</p>
                 </div>
                 <div className="total-amount">
                   <p className="amount-text">应付(CNY): </p>
                 </div>
                 <div className="amount text-danger">
-                  <p>¥ 10.00</p>
+                  <p>¥ {sum}</p>
                 </div>
               </div>
+              <button
+                type="button"
+                className="btn btn-primary btn-lg btn-block"
+                onClick={this.handleClick}
+              >
+                确认下单
+              </button>
             </div>
           </div>
         </div>

@@ -13,11 +13,13 @@ class ProductsAdd extends PureComponent {
       stock: 0,
       price: "",
       brief: "",
-      categoryId: ""
+      categoryId: "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb"
     };
   }
 
-  _ChangeValue = e => {
+  _changeValue = e => {
+    // debugger;
+    // console.log(this.state.categoryId);
     switch (e.target.name) {
       case "name":
         this.setState({
@@ -56,14 +58,7 @@ class ProductsAdd extends PureComponent {
         brief: this.state.brief,
         categoryId: this.state.categoryId
       })
-      .then((response, data) => {
-        this.setState({
-          name: response.data.name,
-          stock: response.data.stock,
-          price: response.data.price,
-          brief: response.data.brief,
-          categoryId: response.data.categoryId
-        });
+      .then(() => {
         window.location.href = "/products";
       })
       .catch(function(error) {
@@ -82,7 +77,7 @@ class ProductsAdd extends PureComponent {
           <input
             placeholder="请输入商品名称"
             required="required"
-            onChange={this._ChangeValue}
+            onChange={this._changeValue}
             name="name"
             autoComplete="off"
             value={this.state.name}
@@ -101,13 +96,13 @@ class ProductsAdd extends PureComponent {
             step="0.01"
             required
             autoComplete="off"
-            onChange={this._ChangeValue}
+            onChange={this._changeValue}
             name="stock"
             value={this.state.stock}
             className="form-control"
           />
         </div>
-        <ProductByCategory _ChangeValue={this._ChangeValue} />
+        <ProductByCategory _changeValue={this._changeValue} />
         <div className="input-group mb-3 add-product">
           <div className="input-group-prepend">
             <span className="input-group-text">产品价格</span>
@@ -118,7 +113,7 @@ class ProductsAdd extends PureComponent {
             step="0.01"
             required
             autoComplete="off"
-            onChange={this._ChangeValue}
+            onChange={this._changeValue}
             name="price"
             value={this.state.price}
             className="form-control"
@@ -137,7 +132,7 @@ class ProductsAdd extends PureComponent {
             required
             placeholder="请输入商品的简要描述"
             autoComplete="off"
-            onChange={this._ChangeValue}
+            onChange={this._changeValue}
             className="form-control"
             name="brief"
             value={this.state.brief}

@@ -6,5 +6,6 @@ const db = low(adapter);
 
 module.exports = {
   categories: db.get("categories"),
-  products: db.get("products")
+  products: db.get("products"),
+  orders: db.get("orders")
 };

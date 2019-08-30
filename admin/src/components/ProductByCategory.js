@@ -11,14 +11,15 @@ class ProductByCategory extends PureComponent {
   }
 
   componentDidMount() {
+    // debugger;
     axios
       .get("/admin/categories")
       .then((response, data) => {
-        console.log([response.data]);
+        // console.log([response.data]);
         this.setState({
           productByCategory: response.data
         });
-        console.log(response);
+        // console.log(response);
       })
 
       .catch(function(error) {
@@ -37,7 +38,11 @@ class ProductByCategory extends PureComponent {
           value={this.props.categoryId}
         >
           {this.state.productByCategory.map((item, index) => {
-            return <option value={item.id}>{item.name}</option>;
+            return (
+              <option value={item.id} key={item.id}>
+                {item.name}
+              </option>
+            );
           })}
         </select>
       </div>

@@ -46,7 +46,7 @@ class Product extends PureComponent {
     axios
       .get("/admin/products")
       .then((response, data) => {
-        console.log([response.data]);
+        // console.log([response.data]);
 
         this.setState({
           products: response.data

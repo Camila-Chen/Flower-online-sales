@@ -19,37 +19,114 @@
   ],
   "products": [
     {
-      "name": "回忆",
+      "name": "洛丽塔",
       "stock": 3,
-      "price": "88",
-      "brief": "10支/扎，60cm",
+      "price": 75,
+      "brief": "10支/扎,60cm",
       "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
-      "id": "prod_531b948e-71c0-4735-84b9-7f86e379911f"
+      "id": "prod_877f761e-e19f-49ea-a977-7312547f6024"
     },
     {
-      "name": "满天星~粉",
-      "stock": 6,
-      "price": "100",
-      "brief": "20支/扎，800克左右/扎",
+      "name": "佳力图",
+      "stock": 2,
+      "price": 75,
+      "brief": "10支/扎,60cm",
+      "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+      "id": "prod_1e757e93-f380-41c7-a5af-09005a86e1b5"
+    },
+    {
+      "name": "满天星~湖蓝",
+      "stock": 4,
+      "price": 100,
+      "brief": "20支/扎,800克左右/扎",
       "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
-      "id": "prod_b96840cb-5921-4fb4-808a-c92c4adb18f2"
+      "id": "prod_b7db611a-ec2d-403e-948c-8689a57e65dc"
     },
     {
       "name": "粉帝王",
-      "stock": 6,
-      "price": "80",
-      "brief": "1支，杆长60cm",
+      "stock": 3,
+      "price": 80,
+      "brief": "一扎,十支",
       "categoryId": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22",
-      "id": "prod_667a0d39-e467-490e-a55b-abae73b310fa"
+      "id": "prod_f50312cc-04f3-4a24-ad6d-cf9c52512a1f"
     },
     {
-      "name": "重瓣红色郁金香",
-      "stock": 2,
-      "price": "45",
-      "brief": "10支/扎",
+      "name": "绣球~紫",
+      "stock": 3,
+      "price": 35,
+      "brief": "一支",
       "categoryId": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8",
-      "id": "prod_73185113-f5ee-4ea5-a677-5f245f413917"
+      "id": "prod_5719f7d3-035a-40ec-bb79-57be35cc0783"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "count": 0,
+      "sum": 0,
+      "orderItems": [],
+      "id": "order_29505360-cc38-4bed-846c-7ab8f659a6a7"
+    },
+    {
+      "count": 0,
+      "sum": 0,
+      "orderItems": [
+        {
+          "name": "洛丽塔",
+          "stock": 3,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+          "number": 2,
+          "categoryName": "肯尼亚普通农场玫瑰"
+        }
+      ],
+      "id": "order_0c2ae79c-2fde-418c-a37c-43c20ca9aec9"
+    },
+    {
+      "count": 0,
+      "sum": 0,
+      "orderItems": [
+        {
+          "name": "洛丽塔",
+          "stock": 3,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+          "number": 2,
+          "categoryName": "肯尼亚普通农场玫瑰"
+        },
+        {
+          "name": "佳力图",
+          "stock": 2,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_1e757e93-f380-41c7-a5af-09005a86e1b5",
+          "number": 1,
+          "categoryName": ""
+        }
+      ],
+      "id": "order_cb634af8-fedc-49bc-893f-573eea345bc7"
+    },
+
+    {
+      "count": 2,
+      "sum": 150,
+      "orderItems": [
+        {
+          "name": "洛丽塔",
+          "stock": 3,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+          "number": 2,
+          "categoryName": "肯尼亚普通农场玫瑰"
+        }
+      ],
+      "id": "order_62a1d812-de1a-4d2e-83c9-bedc8e732068"
+    }
+  ]
 }

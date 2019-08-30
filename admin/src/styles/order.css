@@ -1,0 +1,18 @@
+.card-order.card {
+    max-width: 20rem;
+    margin: auto;
+
+}
+
+.card-order .card-header {
+    padding: 3%;
+    background-color: gainsboro;
+
+
+}
+
+.order-head {
+    text-align: center;
+    font-size: 1.3rem;
+
+}

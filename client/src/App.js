@@ -6,8 +6,9 @@ import Tacking from "./components/Tacking";
 import Head from "./components/Head";
 import axios from "axios";
 import Cart from "./components/Cart";
-
-axios.defaults.baseURL = "http://localhost:9000";
+var VConsole = require("vconsole/dist/vconsole.min.js");
+var vConsole = new VConsole();
+axios.defaults.baseURL = "http://192.168.2.87:9000";
 
 class App extends PureComponent {
   constructor(props) {
@@ -32,42 +33,62 @@ class App extends PureComponent {
     } else {
       const item = product;
       item.number = 1;
-      item.categoryName = categoryName;
+      if (this.state.orderItems.some(el => el.categoryName === categoryName)) {
+        item.categoryName = "";
+      } else {
+        item.categoryName = categoryName;
+      }
       const items = [...this.state.orderItems];
       items.push(item);
       // console.log(items);
       this.setState({
-        orderItems: items,
-        categoryName: categoryName
+        orderItems: items
+        // categoryName: categoryName
       });
     }
   };
 
-  reduceOrder = product => {
-    if (this.state.orderItems.some(el => el.id === product.id)) {
-      var found = this.state.orderItems.find(element => {
-        return element.id === product.id;
-      });
+  reduceOrder = (product, productIndex) => {
+    // debugger;
+    this.state.orderItems.some(el => el.id === product.id);
+    var found = this.state.orderItems.find(element => {
+      return element.id === product.id;
+    });
+    if (found.number > 1) {
       found.number = found.number - 1;
       this.setState({
         orderItems: [...this.state.orderItems]
       });
     } else {
+      const item = product;
+      item.productIndex = productIndex;
+      const items = [...this.state.orderItems];
+      items.splice(productIndex, 1);
+      this.setState({
+        orderItems: items
+      });
     }
-    this.setState({});
   };
 
-  changeOrder = (productOrder, n) => {
-    this.setState({
-      n: n,
-      name: productOrder.name,
-      productOrder: this.state.productOrder,
-      productId: productOrder.id,
-      brief: productOrder.brief,
-      stock: productOrder.stock,
-      price: productOrder.price,
-      categoryName: productOrder.categoryName
-    });
+  changeOrder = (product, n) => {
+    // debugger;
+    if (this.state.orderItems.some(el => el.id === product.id)) {
+      var found = this.state.orderItems.find(element => {
+        return element.id === product.id;
+      });
+      found.number = n;
+      this.setState({
+        orderItems: [...this.state.orderItems]
+      });
+    } else {
+      const item = product;
+      item.number = n;
+      const items = [...this.state.orderItems];
+      items.push(item);
+      this.setState({
+        orderItems: items
+      });
+    }
   };
 
   render() {

@@ -50,7 +50,7 @@ class ProductsUpdate extends PureComponent {
     axios
       .get("/admin/products/" + this.props.match.params.id)
       .then((response, data) => {
-        console.log([response.data]);
+        // console.log([response.data]);
 
         this.setState({
           name: response.data.name,

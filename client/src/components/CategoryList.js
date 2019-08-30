@@ -23,6 +23,7 @@ class CategoryList extends React.Component {
               name={item.name}
               parentId="categories"
               openId={item.id}
+              item={item}
             />
           );
         })}
