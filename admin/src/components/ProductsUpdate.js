@@ -107,12 +107,10 @@ class ProductsUpdate extends PureComponent {
             className="form-control"
           />
         </div>
-        <div className="input-group mb-3 add-product">
-          <ProductByCategory
-            _changeValue={this._changeValue}
-            categoryId={this.state.categoryId}
-          />
-        </div>
+        <ProductByCategory
+          _changeValue={this._changeValue}
+          categoryId={this.state.categoryId}
+        />
         <div className="input-group mb-3 add-product">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon3">

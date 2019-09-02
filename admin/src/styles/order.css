@@ -11,8 +11,26 @@
 
 }
 
-.order-head {
-    text-align: center;
-    font-size: 1.3rem;
+.OrderHead {
+    background-color: rgba(0, 0, 0, .03);
+}
 
+.StoreName {
+    margin-bottom: 0
+}
+
+hr {
+    margin-top: 0
+}
+
+.orderCount,
+.orderSum,
+.orderTime,
+.date {
+    margin-bottom: 0
+}
+
+.order-count,
+.order-price {
+    margin-bottom: .5rem
 }

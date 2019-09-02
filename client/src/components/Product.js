@@ -51,7 +51,7 @@ class Product extends PureComponent {
             </div>
           </div>
 
-          <div className="operate col-sm-6 col-6 ">
+          <div className="operate col-sm-6 col-6 d-flex justify-content-center ">
             <button
               type="button"
               className="button"

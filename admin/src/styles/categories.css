@@ -8,3 +8,13 @@
     padding: 2% 40%;
     border-radius: 50px;
 }
+
+.search {
+    padding: 3%
+}
+
+.search-btn {
+    margin-left: 2%;
+    color: #007bff;
+    border-color: dodgerblue
+}

@@ -6,9 +6,9 @@ import Tacking from "./components/Tacking";
 import Head from "./components/Head";
 import axios from "axios";
 import Cart from "./components/Cart";
-var VConsole = require("vconsole/dist/vconsole.min.js");
-var vConsole = new VConsole();
-axios.defaults.baseURL = "http://192.168.2.87:9000";
+// var VConsole = require("vconsole/dist/vconsole.min.js");
+// var vConsole = new VConsole();
+axios.defaults.baseURL = "http://192.168.2.67:9000";
 
 class App extends PureComponent {
   constructor(props) {

@@ -20,7 +20,9 @@ class Cart extends PureComponent {
         sum: sum,
         orderItems: this.props.orderItems
       })
-      .then(() => {})
+      .then(() => {
+        alert("下单成功");
+      })
       .catch(function(error) {
         alert(error.message);
       });

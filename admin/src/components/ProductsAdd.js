@@ -10,7 +10,7 @@ class ProductsAdd extends PureComponent {
     this.state = {
       isClickable: true,
       name: "",
-      stock: 0,
+      stock: "",
       price: "",
       brief: "",
       categoryId: "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb"

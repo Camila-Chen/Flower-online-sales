@@ -1,65 +1,63 @@
 import React, { PureComponent } from "react";
 import "../styles/order.css";
+import axios from "axios";
+import OrderCard from "./OrderCard";
 
 class Order extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      orders: []
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("/admin/orders")
+      .then((response, data) => {
+        // console.log([response.data]);
+        this.setState({
+          orders: response.data
+        });
+      })
+
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   render() {
     return (
-      <table className="table">
-        <thead>
-          <tr>
-            <th>名称</th>
-            <th>金额</th>
-            <th>数量</th>
-            <th>状态</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <button>
-            <tr className="active">
-              <td>001</td>
-              <td>郭靖</td>
-              <td>25</td>
-              <td>25</td>
-              <td>展开</td>
-            </tr>
+      <div>
+        <form className="form-inline d-flex justify-content-center search">
+          <input
+            className="form-control col-8 "
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button className="btn btn-outline-success search-btn " type="submit">
+            Search
           </button>
-          <tr className="success">
-            <td>002</td>
-            <td>黄蓉</td>
-            <td>23</td>
-            <td>23</td>
-            <td>展开</td>
-          </tr>
-          <tr className="info">
-            <td>003</td>
-            <td>杨过</td>
-            <td>24</td>
-            <td>23</td>
-            <td>展开</td>
-          </tr>
-          <tr className="warning">
-            <td>004</td>
-            <td>黄老邪</td>
-            <td>54</td>
-            <td>23</td>
-            <td>展开</td>
-          </tr>
-          <tr className="danger">
-            <td>005</td>
-            <td>欧阳锋</td>
-            <td>42</td>
-            <td>23</td>
-            <td>展开</td>
-          </tr>
-        </tbody>
-      </table>
+        </form>
+        <div className="card gap">
+          <div className="card-header  ">
+            {this.state.orders.map((item, index) => {
+              return (
+                <OrderCard
+                  key={item.id}
+                  orderNumber={item.order}
+                  orderItem={item.orderItems}
+                  count={item.count}
+                  sum={item.sum}
+                  date={item.myDate}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
     );
   }
 }

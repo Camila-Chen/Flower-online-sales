@@ -12,9 +12,9 @@ class Card extends PureComponent {
     return (
       <div>
         <div className="card gap">
-          <div className="card-header d-flex flex-row ">
+          <div className="card-header d-flex flex-row">
             <div className="nameId col-sm-8 col-8">
-              <button className="btn btn-link" type="button">
+              <button className="btn btn-link " type="button">
                 {this.props.name}
               </button>
             </div>

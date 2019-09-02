@@ -16,6 +16,17 @@ class Product extends PureComponent {
   render() {
     return (
       <div>
+        <form className="form-inline d-flex justify-content-center search">
+          <input
+            className="form-control col-8 "
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button className="btn btn-outline-success search-btn " type="submit">
+            Search
+          </button>
+        </form>
         <div className="products">
           {this.state.products.map((item, index) => {
             return (

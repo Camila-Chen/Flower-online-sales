@@ -168,6 +168,14 @@ app.post(
   })
 );
 
+app.get(
+  "/admin/orders",
+  asyncMiddleware(async (req, res) => {
+    const orders = await orderCtrl.getAllOrders();
+    res.send(orders);
+  })
+);
+
 app.listen(process.env.port, () =>
   console.log(`flower app listening on port ${process.env.port}!`)
 );

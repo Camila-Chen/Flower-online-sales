@@ -30,7 +30,12 @@ class ProductByCategory extends PureComponent {
   render() {
     // debugger;
     return (
-      <div>
+      <div className="input-group mb-3 add-product">
+        <div className="input-group-prepend">
+          <span className="input-group-text" id="basic-addon3">
+            产品类别
+          </span>
+        </div>
         <select
           name="categoryId"
           onChange={this.props._changeValue}
