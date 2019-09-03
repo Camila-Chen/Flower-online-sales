@@ -43,6 +43,6 @@ h5 {
 }
 
 .products {
-    height: 70vh;
-    overflow-y: auto;
+    height: calc(90vh - 180px);
+    overflow: auto;
 }

@@ -38,13 +38,17 @@ class Cart extends PureComponent {
     }, 0);
     return (
       <div>
-        <button data-toggle="modal" data-target="#exampleModalCenter">
-          <div className="shopping-cart fixed-bottom">
+        <button
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+          className="shopping-cart "
+        >
+          <div className="shopping-cart">
             <svg
               className="border border-dark rounded-circle cart-logo"
               xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
+              width="50"
+              height="50"
               viewBox="0 0 24 24"
               fill="white"
             >
@@ -53,7 +57,6 @@ class Cart extends PureComponent {
             </svg>
           </div>
         </button>
-
         <div
           className="modal fade"
           id="exampleModalCenter"
@@ -104,13 +107,13 @@ class Cart extends PureComponent {
                   <p>¥ {sum}</p>
                 </div>
               </div>
-              <button
+              {/* <button
                 type="button"
                 className="btn btn-primary btn-lg btn-block"
                 onClick={this.handleClick}
               >
-                确认下单
-              </button>
+                请确认下单信息
+              </button> */}
             </div>
           </div>
         </div>

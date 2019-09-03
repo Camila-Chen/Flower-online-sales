@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import "../styles/product.css";
-
+import Zmage from "react-zmage";
 class Product extends PureComponent {
   constructor(props) {
     super(props);
@@ -27,14 +27,14 @@ class Product extends PureComponent {
     return (
       <div className="card mb-3 ">
         <div className="row no-gutters">
-          <div className="col-sm-3 col-3 suit">
-            <img
-              className="rosepic img-fluid"
+          <div className="col-sm-4 col-4 suit ">
+            <Zmage
+              className="rosepic "
               src={require("../image/test1.jpeg")}
               alt="加载中..."
             />
           </div>
-          <div className="col-sm-8 col-8 ">
+          <div className="col-sm-7 col-7 ">
             <div className="card-body">
               <h5 className="card-title ">{this.props.item.name}</h5>
               <p className="intro">{this.props.item.brief}</p>

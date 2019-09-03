@@ -1,0 +1,26 @@
+.client-information {
+    margin: 15px;
+}
+
+.client-name {
+    font-size: 1.000em;
+    font-weight: bold;
+    color: rgb(34, 34, 34);
+    margin-bottom: 2px;
+
+}
+
+.client-title {
+    color: #545454;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.address-select {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.order-btn {
+    background-color: #5e8685
+}

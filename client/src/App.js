@@ -1,12 +1,14 @@
 import React, { PureComponent } from "react";
 
 import "./App.css";
+import distpicker from "distpicker";
 import CategoryList from "./components/CategoryList";
 import Tacking from "./components/Tacking";
 import Head from "./components/Head";
 import axios from "axios";
 import Cart from "./components/Cart";
 import Transport from "./components/Transport";
+import Client from "./components/Client";
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
 axios.defaults.baseURL = "http://192.168.2.72:9000";
@@ -120,6 +122,7 @@ class App extends PureComponent {
             />
             <hr className="dotted-line" />
             <Transport />
+            <Client />
           </div>
         </div>
       </div>

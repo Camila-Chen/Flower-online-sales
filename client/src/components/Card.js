@@ -31,7 +31,7 @@ class Card extends PureComponent {
         <div className="card-header">
           <h2 className="mb-0">
             <button
-              className="btn btn-link"
+              className="btn btn-link category-btn"
               type="button"
               data-toggle="collapse"
               data-target={"#" + openId}

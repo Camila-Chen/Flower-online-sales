@@ -1,9 +1,11 @@
-.shopping-cart {
-    display: flex;
-    justify-content: flex-end;
+.cart-logo {
+    background-color: #5e8685;
+    padding: 8%
 }
 
-.cart-logo {
-    background-color: lightslategrey;
-
+.shopping-cart {
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    z-index: 100;
 }

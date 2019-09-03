@@ -11,7 +11,7 @@ import ProductsAdd from "./components/ProductsAdd";
 import ProductsUpdate from "./components/ProductsUpdate";
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
-axios.defaults.baseURL = "http://192.168.2.67:9000";
+axios.defaults.baseURL = "http://192.168.2.72:9000";
 
 class App extends PureComponent {
   constructor(props) {
