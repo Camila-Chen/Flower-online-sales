@@ -30,7 +30,7 @@ class Product extends PureComponent {
           <div className="col-sm-3 col-3 suit">
             <img
               className="rosepic img-fluid"
-              src={require("../image/rose1.jpeg")}
+              src={require("../image/test1.jpeg")}
               alt="加载中..."
             />
           </div>
@@ -54,7 +54,7 @@ class Product extends PureComponent {
           <div className="operate col-sm-6 col-6 d-flex justify-content-center ">
             <button
               type="button"
-              className="button"
+              className="button action-button"
               onClick={this.reduceClick}
               disabled={number <= 0}
             >
@@ -63,6 +63,7 @@ class Product extends PureComponent {
             <input
               type="number"
               className="button-input"
+              style={{ width: 40 }}
               onChange={this.handleChange}
               value={
                 number <= this.props.item.stock ? number : this.props.item.stock
@@ -71,7 +72,7 @@ class Product extends PureComponent {
 
             <button
               type="button"
-              className="button"
+              className="button action-button"
               onClick={this.addClick}
               disabled={number >= this.props.item.stock}
             >

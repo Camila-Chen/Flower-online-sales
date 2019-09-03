@@ -6,9 +6,10 @@ import Tacking from "./components/Tacking";
 import Head from "./components/Head";
 import axios from "axios";
 import Cart from "./components/Cart";
+import Transport from "./components/Transport";
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
-axios.defaults.baseURL = "http://192.168.2.67:9000";
+axios.defaults.baseURL = "http://192.168.2.72:9000";
 
 class App extends PureComponent {
   constructor(props) {
@@ -117,7 +118,8 @@ class App extends PureComponent {
               reduceOrder={this.reduceOrder}
               orderItems={this.state.orderItems}
             />
-            {/* <Transport /> */}
+            <hr className="dotted-line" />
+            <Transport />
           </div>
         </div>
       </div>

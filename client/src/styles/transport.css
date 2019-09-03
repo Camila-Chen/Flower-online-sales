@@ -1,1 +1,38 @@
-.check-select {}
+.transport-order {
+    padding: 0 15px
+}
+
+.instruction {
+    font-size: 1.000em;
+    font-weight: bold;
+    color: rgb(34, 34, 34);
+    margin-left: 15px;
+    margin-bottom: 2px;
+}
+
+.instruction-detail {
+    margin-bottom: 1px;
+    color: #545454;
+    font-size: 14px;
+}
+
+.detail-foot {
+    margin-bottom: 5vh;
+
+}
+
+.contact1,
+.contact2 {
+    max-width: 100%;
+}
+
+.contact-information {
+    padding-bottom: 5vh
+}
+
+.post-title {
+    margin-left: 15px;
+    color: #545454;
+    margin-bottom: 6px;
+    font-size: 14px;
+}

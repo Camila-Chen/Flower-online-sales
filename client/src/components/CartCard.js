@@ -51,7 +51,7 @@ class CartCard extends PureComponent {
           <div className="operate col-sm-6 col-6 ">
             <button
               type="button"
-              className="button"
+              className="button action-button"
               onClick={this.reduceClick}
               disabled={number <= 0}
             >
@@ -69,7 +69,7 @@ class CartCard extends PureComponent {
             />
             <button
               type="button"
-              className="button"
+              className="button action-button"
               onClick={this.addClick}
               disabled={number >= this.props.item.stock}
             >
