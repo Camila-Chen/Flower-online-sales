@@ -16,7 +16,7 @@ class Order extends PureComponent {
     axios
       .get("/admin/orders")
       .then((response, data) => {
-        // console.log([response.data]);
+        console.log([response.data]);
         this.setState({
           orders: response.data
         });
@@ -30,20 +30,10 @@ class Order extends PureComponent {
   render() {
     return (
       <div>
-        <form className="form-inline d-flex justify-content-center search">
-          <input
-            className="form-control col-8 "
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button className="btn btn-outline-success search-btn " type="submit">
-            Search
-          </button>
-        </form>
         <div className="card gap">
           <div className="card-header  ">
             {this.state.orders.map((item, index) => {
+              console.log(item);
               return (
                 <OrderCard
                   key={item.id}
@@ -52,6 +42,14 @@ class Order extends PureComponent {
                   count={item.count}
                   sum={item.sum}
                   date={item.myDate}
+                  clientName={item.clientName}
+                  clientTel={item.clientTel}
+                  clientProvince={item.clientProvince}
+                  clientCity={item.clientCity}
+                  clientArea={item.clientArea}
+                  clientAddress={item.clientAddress}
+                  clientText={item.clientText}
+                  value={item.value}
                 />
               );
             })}

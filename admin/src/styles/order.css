@@ -34,3 +34,12 @@ hr {
 .order-price {
     margin-bottom: .5rem
 }
+
+.clientName {
+    padding-left: 0;
+    margin-bottom: 0
+}
+
+.clientTel {
+    margin-bottom: 0
+}

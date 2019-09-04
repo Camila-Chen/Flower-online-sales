@@ -31,14 +31,32 @@ class OrderCard extends PureComponent {
               />
             );
           })}
-          <div className="card-footer text-muted ">
+          <div className="order-bk bg-primary text-light">
             <div className="d-flex justify-content-between">
-              <p className="orderCount">共{this.props.count}件商品</p>
+              <p className="orderCount ">共{this.props.count}件商品</p>
               <p className="orderSum">订单金额 ¥ {this.props.sum}</p>
             </div>
             <div className="order-time d-flex justify-content-between">
               <p className="orderTime">订单创建时间</p>
               <p className="date">{this.props.date}</p>
+            </div>
+          </div>
+          <div className="card-footer text-muted ">
+            <div className="d-flex justify-content-between ">
+              <p className=" clientName  ">{this.props.clientName}</p>
+              <p className="  clientTel">{this.props.clientTel}</p>
+              <p className=" clientName  ">{this.props.value}</p>
+            </div>
+            <div>
+              <p className="clientTel">
+                {this.props.clientProvince}
+                {this.props.clientCity}
+                {this.props.clientArea}
+                {this.props.clientAddress}
+              </p>
+            </div>
+            <div>
+              <p>{this.props.clientText}</p>
             </div>
           </div>
         </div>

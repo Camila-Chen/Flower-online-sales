@@ -13,7 +13,6 @@ import { baseUrl } from './constants';
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
 axios.defaults.baseURL = baseUrl;
-
 class App extends PureComponent {
   constructor(props) {
     super(props);
