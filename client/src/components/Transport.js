@@ -9,6 +9,10 @@ class Transport extends PureComponent {
     this.state = {};
   }
 
+  handleChange = e => {
+    this.props.handleChange(e.target.value);
+  };
+
   render() {
     return (
       <div>
@@ -87,11 +91,12 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
                   name="exampleRadios"
                   id="exampleRadios1"
-                  value="option1"
+                  value="滴滴"
                 />
                 <label class="form-check-label" for="exampleRadios1">
                   滴滴
@@ -101,11 +106,12 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
                   name="exampleRadios"
                   id="exampleRadios2"
-                  value="option2"
+                  value="达达"
                 />
                 <label class="form-check-label" for="exampleRadios2">
                   达达
@@ -115,11 +121,12 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
                   name="exampleRadios"
                   id="exampleRadios3"
-                  value="option3"
+                  value="顺丰"
                 />
                 <label class="form-check-label" for="exampleRadios3">
                   顺丰
@@ -129,11 +136,12 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
                   name="exampleRadios"
                   id="exampleRadios4"
-                  value="option4"
+                  value="货拉拉"
                 />
                 <label class="form-check-label" for="exampleRadios4">
                   货拉拉
@@ -143,11 +151,12 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
                   name="exampleRadios"
                   id="exampleRadios5"
-                  value="option5"
+                  value="闪送"
                 />
                 <label class="form-check-label" for="exampleRadios5">
                   闪送
@@ -157,11 +166,12 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
                   name="exampleRadios"
                   id="exampleRadios6"
-                  value="option6"
+                  value="物流"
                 />
                 <label class="form-check-label" for="exampleRadios6">
                   物流

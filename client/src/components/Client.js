@@ -1,15 +1,85 @@
 import React, { PureComponent } from "react";
 import "../styles/client.css";
+import axios from "axios";
 
 class Client extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      isClickable: true,
+
+      clientName: "",
+      clientTel: "",
+      clientProvince: "",
+      clientCity: "",
+      clientArea: "",
+      clientAddress: "",
+      clientText: ""
+    };
   }
 
-  handleClick = () => {
-    alert("下单成功");
+  _changeValue = e => {
+    switch (e.target.name) {
+      case "clientName":
+        this.setState({
+          clientName: e.target.value
+        });
+        break;
+      case "clientTel":
+        this.setState({
+          clientTel: e.target.value
+        });
+        break;
+      case "clientProvince":
+        this.setState({
+          clientProvince: e.target.value
+        });
+        break;
+      case "clientCity":
+        this.setState({
+          clientCity: e.target.value
+        });
+        break;
+      case "clientArea":
+        this.setState({
+          clientArea: e.target.value
+        });
+        break;
+      case "clientAddress":
+        this.setState({
+          clientAddress: e.target.value
+        });
+        break;
+      case "clientText":
+        this.setState({
+          clientText: e.target.value
+        });
+        break;
+    }
+  };
+
+  handleClick = e => {
+    e.preventDefault();
+    this.setState({ isClickable: false });
+    axios
+      .post("/admin/orders", {
+        sum: this.props.sum,
+        count: this.props.count,
+        clientName: this.state.clientName,
+        clientTel: this.state.clientTel,
+        clientProvince: this.state.clientProvince,
+        clientCity: this.state.clientCity,
+        clientArea: this.state.clientArea,
+        clientAddress: this.state.clientAddress,
+        clientText: this.state.clientText,
+        orderItems: this.props.orderItems,
+        value: this.props.value
+      })
+      .then(() => {})
+      .catch(function(error) {
+        alert(error.message);
+      });
   };
 
   render() {
@@ -22,6 +92,8 @@ class Client extends PureComponent {
             </label>
 
             <input
+              name="clientName"
+              onChange={this._changeValue}
               required="required"
               type="text"
               className="form-control"
@@ -39,6 +111,8 @@ class Client extends PureComponent {
             </label>
 
             <input
+              name="clientTel"
+              onChange={this._changeValue}
               type="number"
               required
               className="form-control"
@@ -55,22 +129,30 @@ class Client extends PureComponent {
               </div>
               <div className="address-select" data-toggle="distpicker">
                 <select
+                  name="clientProvince"
+                  onChange={this._changeValue}
                   className="custom-select col-sm-4 col-4"
                   id="inlineFormCustomSelect"
                 ></select>
 
                 <select
+                  name="clientCity"
+                  onChange={this._changeValue}
                   className="custom-select col-sm-4 col-4 "
                   id="inlineFormCustomSelect"
                 ></select>
 
                 <select
+                  name="clientArea"
+                  onChange={this._changeValue}
                   className="custom-select col-sm-4 col-4"
                   id="inlineFormCustomSelect"
                 ></select>
               </div>
               <div className="client-information">
                 <input
+                  name="clientAddress"
+                  onChange={this._changeValue}
                   required
                   type="text"
                   className="form-control"
@@ -88,6 +170,8 @@ class Client extends PureComponent {
                   备注
                 </label>
                 <textarea
+                  name="clientText"
+                  onChange={this._changeValue}
                   className="form-control "
                   id="exampleFormControlTextarea1"
                   rows="3"
@@ -95,7 +179,10 @@ class Client extends PureComponent {
               </div>
             </div>
           </div>
-          <button className="btn btn-success btn-lg btn-block order-btn text-light">
+          <button
+            disabled={!this.state.isClickable}
+            className="btn btn-success btn-lg btn-block order-btn text-light"
+          >
             确认下单
           </button>
         </form>

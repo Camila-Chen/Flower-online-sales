@@ -16,17 +16,6 @@ class Category extends PureComponent {
   render() {
     return (
       <div id="categories">
-        <form className="form-inline d-flex justify-content-center search">
-          <input
-            className="form-control col-8 "
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button className="btn btn-outline-success search-btn " type="submit">
-            Search
-          </button>
-        </form>
         {this.state.categories.map((item, index) => {
           return (
             <Card

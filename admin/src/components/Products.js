@@ -9,24 +9,44 @@ class Product extends PureComponent {
     super(props);
 
     this.state = {
-      products: []
+      products: [],
+      search: ""
     };
   }
+  search = "";
+  handleChange = e => {
+    this.search = e.target.value;
+  };
+
+  handleClick = () => {
+    // debugger;
+    const result = this.state.products.filter(
+      word => word.name === this.search
+    );
+
+    this.setState({
+      products: result
+    });
+  };
 
   render() {
     return (
       <div>
-        <form className="form-inline d-flex justify-content-center search">
+        <div className="search d-flex flex-row justify-content-center">
           <input
-            className="form-control col-8 "
+            onChange={this.handleChange}
+            className="form-control col-7 col-sm-7"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button className="btn btn-outline-success search-btn " type="submit">
+          <button
+            onClick={this.handleClick}
+            className="btn btn-outline-success search-btn col-sm-3 col-3 "
+          >
             Search
           </button>
-        </form>
+        </div>
         <div className="products">
           {this.state.products.map((item, index) => {
             return (

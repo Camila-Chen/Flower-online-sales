@@ -19,12 +19,16 @@
     {
       "name": "哥伦比亚花材",
       "id": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5"
+    },
+    {
+      "name": "玫瑰花",
+      "id": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9"
     }
   ],
   "products": [
     {
       "name": "洛丽塔",
-      "stock": 3,
+      "stock": 2,
       "price": 75,
       "brief": "10支/扎,60cm",
       "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
@@ -109,32 +113,38 @@
       "brief": "20支/扎，杆长70cm左右",
       "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
       "id": "prod_de7c3441-bc6c-45d0-bf3f-fde996109311"
+    },
+    {
+      "name": "玫瑰花",
+      "stock": 6,
+      "price": 100,
+      "brief": "60cm",
+      "categoryId": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9",
+      "id": "prod_c6cf808a-10c9-4874-8bdb-f88c9d8c7925"
     }
   ],
   "orders": [
     {
+      "sum": 155,
       "count": 2,
-      "sum": 200,
+      "clientName": "陈甜",
+      "clientTel": "15207241900",
+      "clientProvince": "湖北省",
+      "clientCity": "咸宁市",
+      "clientArea": "嘉鱼县",
+      "clientAddress": "中国人民银行",
+      "clientText": "打包",
       "orderItems": [
         {
-          "name": "满天星~湖蓝",
-          "stock": 4,
-          "price": 100,
-          "brief": "20支/扎,800克左右/扎",
-          "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
-          "id": "prod_b7db611a-ec2d-403e-948c-8689a57e65dc",
-          "number": 2,
-          "categoryName": "厄瓜多尔满天星系列"
-        }
-      ],
-      "id": "order_889f4b10-1916-467d-8188-39eccbfe231f",
-      "myDate": "2019-9-2 10:01:30",
-      "order": "1567389620123434270"
-    },
-    {
-      "count": 3,
-      "sum": 150,
-      "orderItems": [
+          "name": "洛丽塔",
+          "stock": 2,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+          "number": 1,
+          "categoryName": "肯尼亚普通农场玫瑰"
+        },
         {
           "name": "粉帝王",
           "stock": 3,
@@ -144,89 +154,49 @@
           "id": "prod_f50312cc-04f3-4a24-ad6d-cf9c52512a1f",
           "number": 1,
           "categoryName": "南非花材"
-        },
-        {
-          "name": "绣球~紫",
-          "stock": 3,
-          "price": 35,
-          "brief": "一支",
-          "categoryId": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8",
-          "id": "prod_5719f7d3-035a-40ec-bb79-57be35cc0783",
-          "number": 2,
-          "categoryName": "荷兰花材"
         }
       ],
-      "id": "order_b536f540-9511-4cdc-bb86-590ed2c84aca",
-      "myDate": "2019-9-2 11:24:36",
-      "order": "1567394160611134855"
+      "value": "顺丰",
+      "id": "order_d8a3149e-8185-4739-a6fc-57c822343bd3",
+      "myDate": "2019-9-4 17:11:21",
+      "order": "1567588213069421900"
     },
     {
-      "count": 5,
-      "sum": 270,
+      "sum": 200,
+      "count": 2,
+      "clientName": "陈甜",
+      "clientTel": "15207241900",
+      "clientProvince": "湖北省",
+      "clientCity": "武汉市",
+      "clientArea": "洪山区",
+      "clientAddress": "中国人民银行",
+      "clientText": "打包",
       "orderItems": [
         {
-          "name": "肯尼亚粉绣",
-          "stock": 50,
-          "price": 25,
-          "brief": "1支，杆长60cm",
-          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
-          "id": "prod_199ad64e-1893-4473-a806-7e51cb82b962",
-          "number": 2,
-          "categoryName": "肯尼亚普通农场玫瑰"
-        },
-        {
-          "name": "洛丽塔",
-          "stock": 3,
-          "price": 75,
-          "brief": "10支/扎,60cm",
-          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
-          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
-          "number": 1,
-          "categoryName": ""
-        },
-        {
-          "name": "新娘花白色",
-          "stock": 7,
+          "name": "满天星~湖蓝",
+          "stock": 4,
           "price": 100,
-          "brief": "10支/扎",
-          "categoryId": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22",
-          "id": "prod_5e3dec5b-1524-4324-a4ba-eb2a708a902d",
+          "brief": "20支/扎,800克左右/扎",
+          "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
+          "id": "prod_b7db611a-ec2d-403e-948c-8689a57e65dc",
           "number": 1,
-          "categoryName": "南非花材"
+          "categoryName": "厄瓜多尔满天星系列"
         },
         {
-          "name": "洋甘菊",
-          "stock": 8,
-          "price": 45,
-          "brief": "5支/扎",
-          "categoryId": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8",
-          "id": "prod_26ff6822-71d9-4116-b05f-5dd9cea249e6",
+          "name": "玫瑰花",
+          "stock": 5,
+          "price": 100,
+          "brief": "60cm",
+          "categoryId": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9",
+          "id": "prod_c6cf808a-10c9-4874-8bdb-f88c9d8c7925",
           "number": 1,
-          "categoryName": "荷兰花材"
+          "categoryName": "玫瑰花"
         }
       ],
-      "id": "order_c42adaa9-325c-4a56-b904-594bc34248b7",
-      "myDate": "2019-9-2 15:24:50",
-      "order": "1567408929865605057"
-    },
-    {
-      "count": 1,
-      "sum": 75,
-      "orderItems": [
-        {
-          "name": "洛丽塔",
-          "stock": 3,
-          "price": 75,
-          "brief": "10支/扎,60cm",
-          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
-          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
-          "number": 1,
-          "categoryName": "肯尼亚普通农场玫瑰"
-        }
-      ],
-      "id": "order_f45170dc-cec0-4fb6-8980-e91a8fe6f2ff",
-      "myDate": "2019-9-2 15:30:24",
-      "order": "1567409091375880490"
+      "value": "顺丰",
+      "id": "order_a4010c01-f094-4db3-8bfa-2417a6c74872",
+      "myDate": "2019-9-4 17:39:32",
+      "order": "1567589905579208906"
     }
   ]
 }

@@ -11,15 +11,26 @@ import Transport from "./components/Transport";
 import Client from "./components/Client";
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
-axios.defaults.baseURL = "http://192.168.2.72:9000";
+axios.defaults.baseURL = "http://192.168.2.69:9000";
+
+var count;
+var sum;
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      orderItems: []
+      orderItems: [],
+      value: ""
     };
   }
+
+  handleChange = e => {
+    // console.log(e);
+    this.setState({
+      value: e
+    });
+  };
 
   addOrder = (product, categoryName) => {
     // debugger;
@@ -95,6 +106,12 @@ class App extends PureComponent {
   };
 
   render() {
+    count = this.state.orderItems.reduce(function(prev, cur) {
+      return cur.number + prev;
+    }, 0);
+    sum = this.state.orderItems.reduce(function(prev, cur) {
+      return cur.number * cur.price + prev;
+    }, 0);
     // console.log();
     return (
       <div>
@@ -115,14 +132,22 @@ class App extends PureComponent {
             </div>
 
             <Cart
+              sum={sum}
+              count={count}
               addOrder={this.addOrder}
               changeOrder={this.changeOrder}
               reduceOrder={this.reduceOrder}
               orderItems={this.state.orderItems}
+              handleClick={this.handleClick}
             />
             <hr className="dotted-line" />
-            <Transport />
-            <Client />
+            <Transport handleChange={this.handleChange} />
+            <Client
+              orderItems={this.state.orderItems}
+              sum={sum}
+              count={count}
+              value={this.state.value}
+            />
           </div>
         </div>
       </div>
