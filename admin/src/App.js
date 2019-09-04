@@ -9,9 +9,10 @@ import CategoriesUpdate from "./components/CategoriesUpdate";
 import CategoriesAdd from "./components/CategoriesAdd";
 import ProductsAdd from "./components/ProductsAdd";
 import ProductsUpdate from "./components/ProductsUpdate";
+import { baseUrl } from './constants';
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
-axios.defaults.baseURL = "http://192.168.2.72:9000";
+axios.defaults.baseURL = baseUrl;
 
 class App extends PureComponent {
   constructor(props) {

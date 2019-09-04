@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import ProductsDelete from "./ProductsDelete";
 import "../styles/productCard.css";
-
+import { baseUrl } from '../constants';
 class ProductCard extends PureComponent {
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ class ProductCard extends PureComponent {
           <div className="col-sm-3 col-3 suit">
             <img
               className="rosepic img-fluid"
-              src={require("../image/rose1.jpeg")}
+              src={baseUrl + this.props.picture}
               alt="加载中..."
             />
           </div>

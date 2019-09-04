@@ -37,6 +37,7 @@ class Product extends PureComponent {
                 stock={item.stock}
                 price={item.price}
                 brief={item.brief}
+                picture={item.picture}
               />
             );
           })}
@@ -56,15 +57,13 @@ class Product extends PureComponent {
   componentDidMount() {
     axios
       .get("/admin/products")
-      .then((response, data) => {
-        // console.log([response.data]);
-
+      .then((response) => {
         this.setState({
           products: response.data
         });
       })
 
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
         alert(error.message);
       });

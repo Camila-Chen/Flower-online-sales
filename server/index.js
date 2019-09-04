@@ -1,10 +1,11 @@
 var express = require("express");
+var path = require('path');
 var app = express();
 var bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 var cors = require("cors");
-
+const fileUpload = require('express-fileupload');
 const catgCtrl = require("./controllers/categories");
 const prodCtrl = require("./controllers/products");
 const orderCtrl = require("./controllers/orders");
@@ -15,24 +16,41 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 // app.use((req, res, next) => {
-//     if (req.url.match(/\/admin/)) {
-//         try {
-//             const decoded = jwt.verify(req.headers['authorization'], process.env.secret);
-//             req.state = decoded;
-//             return next();
-//         } catch (err) {
-//             console.log('err')
-//             res.status(403).send('您没有权限，请登录')
-//         }
-//     } else {
-//         return next()
+//   if (req.url.match(/\/admin/)) {
+//     try {
+//       const decoded = jwt.verify(req.headers['authorization'], process.env.secret);
+//       req.state = decoded;
+//       return next();
+//     } catch (err) {
+//       console.log('err')
+//       res.status(403).send('您没有权限，请登录')
 //     }
-
+//   } else {
+//     return next()
+//   }
 // })
 
 const asyncMiddleware = fn => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next);
 };
+
+app.use(fileUpload({
+  safeFileNames: true,
+  createParentPath: true,
+  uriDecodeFileNames: true,
+  useTempFiles: true,
+  tempFileDir: path.resolve(__dirname, './tmp/'),
+  preserveExtension: true,
+}));
+
+app.post('/upload', function (req, res) {
+  if (Object.keys(req.files).length == 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  res.send(req.files.file.tempFilePath.replace(path.resolve(__dirname, './tmp/'), ''))
+});
+app.use(express.static('tmp'))
 
 // Admin
 

@@ -18,8 +18,6 @@ class ProductsAdd extends PureComponent {
   }
 
   _changeValue = e => {
-    // debugger;
-    // console.log(this.state.categoryId);
     switch (e.target.name) {
       case "name":
         this.setState({
@@ -45,26 +43,41 @@ class ProductsAdd extends PureComponent {
         this.setState({
           categoryId: e.target.value
         });
+        break;
+      case "picture":
+        this.setState({
+          picture: e.target.files[0]
+        });
+        break;
+      default:
+        break;
     }
   };
-  handleClick = e => {
+  handleClick = async e => {
     e.preventDefault();
-    this.setState({ isClickable: false });
-    axios
-      .post("/admin/products", {
-        name: this.state.name,
-        stock: parseInt(this.state.stock),
-        price: parseFloat(this.state.price),
-        brief: this.state.brief,
-        categoryId: this.state.categoryId
-      })
-      .then(() => {
-        window.location.href = "/products";
-      })
-      .catch(function(error) {
-        console.log(error);
-        alert(error.message);
-      });
+    try {
+      this.setState({ isClickable: false });
+      console.log(this.state.picture);
+      var formData = new FormData()
+      formData.append('file', this.state.picture)
+      const { data } = await axios.post("upload", formData);
+      await axios
+        .post("/admin/products", {
+          name: this.state.name,
+          stock: parseInt(this.state.stock),
+          price: parseFloat(this.state.price),
+          brief: this.state.brief,
+          categoryId: this.state.categoryId,
+          picture: data
+        })
+      window.location.href = '/products';
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      this.setState({ isClickable: true });
+    }
+
+
   };
   render() {
     return (
@@ -81,6 +94,21 @@ class ProductsAdd extends PureComponent {
             name="name"
             autoComplete="off"
             value={this.state.name}
+            className="form-control"
+          />
+        </div>
+        <div className="input-group mb-3 add-product">
+          <div className="input-group-prepend">
+            <span className="input-group-text">产品图片</span>
+          </div>
+          <input
+            placeholder="请选择图片"
+            name='picture'
+            required="required"
+            onChange={this._changeValue}
+            type="file"
+            accept="image/*"
+            capture
             className="form-control"
           />
         </div>

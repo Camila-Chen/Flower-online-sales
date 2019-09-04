@@ -56,3 +56,7 @@ yarn.lock
 
 .env
 !  .env.example
+
+/tmp/*
+
+!/tmp/tmp.txt

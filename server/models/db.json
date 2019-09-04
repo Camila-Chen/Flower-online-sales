@@ -19,6 +19,10 @@
     {
       "name": "哥伦比亚花材",
       "id": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5"
+    },
+    {
+      "name": "分类1",
+      "id": "catg_c1269a04-350f-4db8-9eeb-062cd0d72fbe"
     }
   ],
   "products": [
@@ -109,6 +113,15 @@
       "brief": "20支/扎，杆长70cm左右",
       "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
       "id": "prod_de7c3441-bc6c-45d0-bf3f-fde996109311"
+    },
+    {
+      "name": "1",
+      "stock": 1,
+      "price": 1,
+      "brief": "1",
+      "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
+      "picture": "\\tmp-2-1567599829006",
+      "id": "prod_cebdf886-12cf-400f-83ec-990e9b5312ce"
     }
   ],
   "orders": [
