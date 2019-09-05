@@ -1,23 +1,23 @@
 {
   "categories": [
     {
-      "name": "肯尼亚普通农场玫瑰",
+      "name": "进口鲜花",
       "id": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb"
     },
     {
-      "name": "厄瓜多尔满天星系列",
+      "name": "基地玫瑰",
       "id": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e"
     },
     {
-      "name": "南非花材",
+      "name": "基地杂花",
       "id": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22"
     },
     {
-      "name": "荷兰花材",
+      "name": "恒丰基地鲜花",
       "id": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8"
     },
     {
-      "name": "哥伦比亚花材",
+      "name": "海盛基地鲜花",
       "id": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5"
     },
     {
@@ -32,7 +32,8 @@
       "price": 75,
       "brief": "10支/扎,60cm",
       "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
-      "id": "prod_877f761e-e19f-49ea-a977-7312547f6024"
+      "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+      "picture": "/tmp-1-1567653041811"
     },
     {
       "name": "佳力图",
@@ -40,7 +41,8 @@
       "price": 75,
       "brief": "10支/扎,60cm",
       "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
-      "id": "prod_1e757e93-f380-41c7-a5af-09005a86e1b5"
+      "id": "prod_1e757e93-f380-41c7-a5af-09005a86e1b5",
+      "picture": "/tmp-1-1567648249778"
     },
     {
       "name": "满天星~湖蓝",
@@ -48,7 +50,8 @@
       "price": 100,
       "brief": "20支/扎,800克左右/扎",
       "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
-      "id": "prod_b7db611a-ec2d-403e-948c-8689a57e65dc"
+      "id": "prod_b7db611a-ec2d-403e-948c-8689a57e65dc",
+      "picture": "/tmp-1-1567648262397"
     },
     {
       "name": "粉帝王",
@@ -56,7 +59,8 @@
       "price": 80,
       "brief": "一扎,十支",
       "categoryId": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22",
-      "id": "prod_f50312cc-04f3-4a24-ad6d-cf9c52512a1f"
+      "id": "prod_f50312cc-04f3-4a24-ad6d-cf9c52512a1f",
+      "picture": "/tmp-1-1567648276580"
     },
     {
       "name": "绣球~紫",
@@ -64,7 +68,8 @@
       "price": 35,
       "brief": "一支",
       "categoryId": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8",
-      "id": "prod_5719f7d3-035a-40ec-bb79-57be35cc0783"
+      "id": "prod_5719f7d3-035a-40ec-bb79-57be35cc0783",
+      "picture": "/tmp-1-1567648293542"
     },
     {
       "name": "肯尼亚粉绣",
@@ -72,7 +77,8 @@
       "price": 25,
       "brief": "1支，杆长60cm",
       "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
-      "id": "prod_199ad64e-1893-4473-a806-7e51cb82b962"
+      "id": "prod_199ad64e-1893-4473-a806-7e51cb82b962",
+      "picture": "/tmp-1-1567648313180"
     },
     {
       "name": "蝴蝶百合",
@@ -80,7 +86,8 @@
       "price": 80,
       "brief": "20支/扎，杆长70cm左右",
       "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
-      "id": "prod_712bc618-9cfc-4a47-ae16-fef6943d8ba5"
+      "id": "prod_712bc618-9cfc-4a47-ae16-fef6943d8ba5",
+      "picture": "/tmp-1-1567648326888"
     },
     {
       "name": "满天星~七彩斑斓",
@@ -88,7 +95,8 @@
       "price": 160,
       "brief": "20支/扎，800克左右/扎",
       "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
-      "id": "prod_60e3ced6-3988-474f-bb56-59c3f780d3f4"
+      "id": "prod_60e3ced6-3988-474f-bb56-59c3f780d3f4",
+      "picture": "/tmp-1-1567648342325"
     },
     {
       "name": "新娘花白色",
@@ -96,7 +104,8 @@
       "price": 100,
       "brief": "10支/扎",
       "categoryId": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22",
-      "id": "prod_5e3dec5b-1524-4324-a4ba-eb2a708a902d"
+      "id": "prod_5e3dec5b-1524-4324-a4ba-eb2a708a902d",
+      "picture": "/tmp-1-1567648359203"
     },
     {
       "name": "洋甘菊",
@@ -104,7 +113,8 @@
       "price": 45,
       "brief": "5支/扎",
       "categoryId": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8",
-      "id": "prod_26ff6822-71d9-4116-b05f-5dd9cea249e6"
+      "id": "prod_26ff6822-71d9-4116-b05f-5dd9cea249e6",
+      "picture": "/tmp-1-1567648373162"
     },
     {
       "name": "焦糖",
@@ -112,7 +122,8 @@
       "price": 80,
       "brief": "20支/扎，杆长70cm左右",
       "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
-      "id": "prod_de7c3441-bc6c-45d0-bf3f-fde996109311"
+      "id": "prod_de7c3441-bc6c-45d0-bf3f-fde996109311",
+      "picture": "/tmp-1-1567648388463"
     },
     {
       "name": "玫瑰花",
@@ -120,7 +131,17 @@
       "price": 100,
       "brief": "60cm",
       "categoryId": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9",
-      "id": "prod_c6cf808a-10c9-4874-8bdb-f88c9d8c7925"
+      "id": "prod_c6cf808a-10c9-4874-8bdb-f88c9d8c7925",
+      "picture": "/tmp-1-1567648402101"
+    },
+    {
+      "name": "进口鲜花",
+      "stock": 5,
+      "price": 55,
+      "brief": "60cm",
+      "categoryId": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9",
+      "picture": "/tmp-1-1567646639939",
+      "id": "prod_24c5ded5-e822-4476-a01f-64efea178f37"
     }
   ],
   "orders": [
@@ -197,6 +218,156 @@
       "id": "order_a4010c01-f094-4db3-8bfa-2417a6c74872",
       "myDate": "2019-9-4 17:39:32",
       "order": "1567589905579208906"
+    },
+    {
+      "sum": 235,
+      "count": 3,
+      "clientName": "陈甜",
+      "clientTel": "15207241900",
+      "clientProvince": "湖北省",
+      "clientCity": "武汉市",
+      "clientArea": "洪山区",
+      "clientAddress": "翡翠城",
+      "clientText": "",
+      "orderItems": [
+        {
+          "name": "洛丽塔",
+          "stock": 2,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+          "picture": "/tmp-1-1567653041811",
+          "number": 1,
+          "categoryName": "进口鲜花"
+        },
+        {
+          "name": "蝴蝶百合",
+          "stock": 42,
+          "price": 80,
+          "brief": "20支/扎，杆长70cm左右",
+          "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
+          "id": "prod_712bc618-9cfc-4a47-ae16-fef6943d8ba5",
+          "picture": "/tmp-1-1567648326888",
+          "number": 1,
+          "categoryName": "海盛基地鲜花"
+        },
+        {
+          "name": "焦糖",
+          "stock": 27,
+          "price": 80,
+          "brief": "20支/扎，杆长70cm左右",
+          "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
+          "id": "prod_de7c3441-bc6c-45d0-bf3f-fde996109311",
+          "picture": "/tmp-1-1567648388463",
+          "number": 1,
+          "categoryName": ""
+        }
+      ],
+      "value": "",
+      "id": "order_d3e056b3-b425-467e-88ba-0558ebe00c8d",
+      "myDate": "2019-9-5 17:50:15",
+      "order": "1567663149495862572"
+    },
+    {
+      "sum": 235,
+      "count": 3,
+      "clientName": "陈甜",
+      "clientTel": "15207241900",
+      "clientProvince": "湖北省",
+      "clientCity": "武汉市",
+      "clientArea": "洪山区",
+      "clientAddress": "翡翠城",
+      "clientText": "",
+      "orderItems": [
+        {
+          "name": "洛丽塔",
+          "stock": 2,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+          "picture": "/tmp-1-1567653041811",
+          "number": 1,
+          "categoryName": "进口鲜花"
+        },
+        {
+          "name": "蝴蝶百合",
+          "stock": 42,
+          "price": 80,
+          "brief": "20支/扎，杆长70cm左右",
+          "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
+          "id": "prod_712bc618-9cfc-4a47-ae16-fef6943d8ba5",
+          "picture": "/tmp-1-1567648326888",
+          "number": 1,
+          "categoryName": "海盛基地鲜花"
+        },
+        {
+          "name": "焦糖",
+          "stock": 27,
+          "price": 80,
+          "brief": "20支/扎，杆长70cm左右",
+          "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
+          "id": "prod_de7c3441-bc6c-45d0-bf3f-fde996109311",
+          "picture": "/tmp-1-1567648388463",
+          "number": 1,
+          "categoryName": ""
+        }
+      ],
+      "value": "",
+      "id": "order_acb85318-e815-46a1-91f6-673edc6a8560",
+      "myDate": "2019-9-5 17:52:47",
+      "order": "1567677016388317119"
+    },
+    {
+      "sum": 235,
+      "count": 3,
+      "clientName": "陈甜",
+      "clientTel": "15207241900",
+      "clientProvince": "湖北省",
+      "clientCity": "武汉市",
+      "clientArea": "洪山区",
+      "clientAddress": "翡翠城",
+      "clientText": "",
+      "orderItems": [
+        {
+          "name": "洛丽塔",
+          "stock": 2,
+          "price": 75,
+          "brief": "10支/扎,60cm",
+          "categoryId": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb",
+          "id": "prod_877f761e-e19f-49ea-a977-7312547f6024",
+          "picture": "/tmp-1-1567653041811",
+          "number": 1,
+          "categoryName": "进口鲜花"
+        },
+        {
+          "name": "蝴蝶百合",
+          "stock": 42,
+          "price": 80,
+          "brief": "20支/扎，杆长70cm左右",
+          "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
+          "id": "prod_712bc618-9cfc-4a47-ae16-fef6943d8ba5",
+          "picture": "/tmp-1-1567648326888",
+          "number": 1,
+          "categoryName": "海盛基地鲜花"
+        },
+        {
+          "name": "焦糖",
+          "stock": 27,
+          "price": 80,
+          "brief": "20支/扎，杆长70cm左右",
+          "categoryId": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5",
+          "id": "prod_de7c3441-bc6c-45d0-bf3f-fde996109311",
+          "picture": "/tmp-1-1567648388463",
+          "number": 1,
+          "categoryName": ""
+        }
+      ],
+      "value": "",
+      "id": "order_2fe7b6ff-c768-4f21-989f-68756331c140",
+      "myDate": "2019-9-5 17:53:01",
+      "order": "1567677168887612443"
     }
   ]
 }

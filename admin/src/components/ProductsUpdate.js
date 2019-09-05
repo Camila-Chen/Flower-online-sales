@@ -12,7 +12,8 @@ class ProductsUpdate extends PureComponent {
       stock: "",
       price: "",
       brief: "",
-      categoryId: ""
+      categoryId: "",
+      picture: ""
     };
   }
 
@@ -42,6 +43,14 @@ class ProductsUpdate extends PureComponent {
         this.setState({
           categoryId: e.target.value
         });
+        break;
+      case "picture":
+        this.setState({
+          file: e.target.files[0]
+        });
+        break;
+      default:
+        break;
     }
   };
 
@@ -50,14 +59,15 @@ class ProductsUpdate extends PureComponent {
     axios
       .get("/admin/products/" + this.props.match.params.id)
       .then((response, data) => {
-        // console.log([response.data]);
+        console.log([response.data]);
 
         this.setState({
           name: response.data.name,
           stock: response.data.stock,
           price: response.data.price,
           brief: response.data.brief,
-          categoryId: response.data.categoryId
+          categoryId: response.data.categoryId,
+          picture: response.data.picture
         });
       })
 
@@ -67,26 +77,32 @@ class ProductsUpdate extends PureComponent {
       });
   }
 
-  handleClick = e => {
+  handleClick = async e => {
     e.preventDefault();
-
-    this.setState({ isClickable: false });
-
-    axios
-      .put("/admin/products/" + this.props.match.params.id, {
+    try {
+      this.setState({ isClickable: false });
+      var data = this.state.picture;
+      if (this.state.file !== undefined) {
+        var formData = new FormData();
+        formData.append("file", this.state.file);
+        var response = await axios.post("upload", formData);
+        data = response.data;
+      }
+      await axios.put("/admin/products/" + this.props.match.params.id, {
         name: this.state.name,
         stock: parseInt(this.state.stock),
         price: parseFloat(this.state.price),
         brief: this.state.brief,
-        categoryId: this.state.categoryId
-      })
-      .then(() => {
-        this.setState({});
-        window.location.href = "/products";
-      })
-      .catch(function(error) {
-        alert(error.message);
+        categoryId: this.state.categoryId,
+        picture: data
       });
+
+      window.location.href = "/products";
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      this.setState({ isClickable: true });
+    }
   };
   render() {
     // debugger;
@@ -111,6 +127,20 @@ class ProductsUpdate extends PureComponent {
           _changeValue={this._changeValue}
           categoryId={this.state.categoryId}
         />
+        <div className="input-group mb-3 add-product">
+          <div className="input-group-prepend">
+            <span className="input-group-text">产品图片</span>
+          </div>
+          <input
+            placeholder="请选择图片"
+            name="picture"
+            onChange={this._changeValue}
+            type="file"
+            accept="image/*"
+            capture
+            className="form-control"
+          />
+        </div>
         <div className="input-group mb-3 add-product">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon3">

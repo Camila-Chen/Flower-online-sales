@@ -11,25 +11,31 @@ import Transport from "./components/Transport";
 import Client from "./components/Client";
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
-axios.defaults.baseURL = "http://192.168.2.69:9000";
+axios.defaults.baseURL = "http://192.168.2.76:9000";
 
 var count;
 var sum;
+var orderItems = localStorage.getItem("cart");
+var transport = localStorage.getItem("transport");
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      orderItems: [],
-      value: ""
+      orderItems: orderItems ? JSON.parse(orderItems) : [],
+      value: transport
     };
+    // console.log(count);
   }
 
   handleChange = e => {
     // console.log(e);
-    this.setState({
-      value: e
-    });
+    this.setState(
+      {
+        value: e
+      },
+      () => window.localStorage.setItem("transport", e)
+    );
   };
 
   addOrder = (product, categoryName) => {
@@ -41,9 +47,16 @@ class App extends PureComponent {
       });
       found.number = found.number + 1;
 
-      this.setState({
-        orderItems: [...this.state.orderItems]
-      });
+      this.setState(
+        {
+          orderItems: [...this.state.orderItems]
+        },
+        () =>
+          window.localStorage.setItem(
+            "cart",
+            JSON.stringify(this.state.orderItems)
+          )
+      );
     } else {
       const item = product;
       item.number = 1;
@@ -55,10 +68,17 @@ class App extends PureComponent {
       const items = [...this.state.orderItems];
       items.push(item);
       // console.log(items);
-      this.setState({
-        orderItems: items
-        // categoryName: categoryName
-      });
+      this.setState(
+        {
+          orderItems: items
+          // categoryName: categoryName
+        },
+        () =>
+          window.localStorage.setItem(
+            "cart",
+            JSON.stringify(this.state.orderItems)
+          )
+      );
     }
   };
 
@@ -70,17 +90,31 @@ class App extends PureComponent {
     });
     if (found.number > 1) {
       found.number = found.number - 1;
-      this.setState({
-        orderItems: [...this.state.orderItems]
-      });
+      this.setState(
+        {
+          orderItems: [...this.state.orderItems]
+        },
+        () =>
+          window.localStorage.setItem(
+            "cart",
+            JSON.stringify(this.state.orderItems)
+          )
+      );
     } else {
       const item = product;
       item.productIndex = productIndex;
       const items = [...this.state.orderItems];
       items.splice(productIndex, 1);
-      this.setState({
-        orderItems: items
-      });
+      this.setState(
+        {
+          orderItems: items
+        },
+        () =>
+          window.localStorage.setItem(
+            "cart",
+            JSON.stringify(this.state.orderItems)
+          )
+      );
     }
   };
 
@@ -91,17 +125,31 @@ class App extends PureComponent {
         return element.id === product.id;
       });
       found.number = n;
-      this.setState({
-        orderItems: [...this.state.orderItems]
-      });
+      this.setState(
+        {
+          orderItems: [...this.state.orderItems]
+        },
+        () =>
+          window.localStorage.setItem(
+            "cart",
+            JSON.stringify(this.state.orderItems)
+          )
+      );
     } else {
       const item = product;
       item.number = n;
       const items = [...this.state.orderItems];
       items.push(item);
-      this.setState({
-        orderItems: items
-      });
+      this.setState(
+        {
+          orderItems: items
+        },
+        () =>
+          window.localStorage.setItem(
+            "cart",
+            JSON.stringify(this.state.orderItems)
+          )
+      );
     }
   };
 
@@ -113,6 +161,7 @@ class App extends PureComponent {
       return cur.number * cur.price + prev;
     }, 0);
     // console.log();
+
     return (
       <div>
         <div className="entire-container">
@@ -141,7 +190,10 @@ class App extends PureComponent {
               handleClick={this.handleClick}
             />
             <hr className="dotted-line" />
-            <Transport handleChange={this.handleChange} />
+            <Transport
+              handleChange={this.handleChange}
+              value={this.state.value}
+            />
             <Client
               orderItems={this.state.orderItems}
               sum={sum}

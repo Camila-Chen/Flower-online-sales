@@ -19,7 +19,6 @@ class Card extends PureComponent {
           products: response.data
         });
       })
-
       .catch(function(error) {
         console.log(error);
       });
@@ -60,6 +59,7 @@ class Card extends PureComponent {
                   reduceOrder={this.props.reduceOrder}
                   categoryName={this.props.name}
                   item={item}
+                  picture={item.picture}
                 />
               );
             })}
