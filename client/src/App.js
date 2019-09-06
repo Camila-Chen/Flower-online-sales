@@ -9,9 +9,12 @@ import axios from "axios";
 import Cart from "./components/Cart";
 import Transport from "./components/Transport";
 import Client from "./components/Client";
+import { baseUrl } from "./constants";
+
 // var VConsole = require("vconsole/dist/vconsole.min.js");
 // var vConsole = new VConsole();
-axios.defaults.baseURL = "http://192.168.2.76:9000";
+// axios.defaults.baseURL = "http://192.168.2.72:9000";
+axios.defaults.baseURL = baseUrl;
 
 var count;
 var sum;

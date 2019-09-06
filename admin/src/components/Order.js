@@ -16,7 +16,7 @@ class Order extends PureComponent {
     axios
       .get("/admin/orders")
       .then((response, data) => {
-        console.log([response.data]);
+        // console.log([response.data]);
         this.setState({
           orders: response.data
         });
