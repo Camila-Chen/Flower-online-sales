@@ -2,27 +2,23 @@
   "categories": [
     {
       "name": "进口鲜花",
-      "id": "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb"
-    },
-    {
-      "name": "基地玫瑰",
-      "id": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e"
-    },
-    {
-      "name": "基地杂花",
       "id": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22"
     },
     {
-      "name": "恒丰基地鲜花",
+      "name": "基地玫瑰",
       "id": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8"
     },
     {
-      "name": "海盛基地鲜花",
+      "name": "基地杂花",
       "id": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5"
     },
     {
-      "name": "玫瑰花",
-      "id": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9"
+      "name": "恒丰基地鲜花",
+      "id": "catg_649a087c-2434-48c3-be6c-203027846c94"
+    },
+    {
+      "name": "海盛基地鲜花",
+      "id": "catg_dad24ce6-5e84-48ef-beaa-e85951aa42e0"
     }
   ],
   "products": [
@@ -49,7 +45,7 @@
       "stock": 4,
       "price": 100,
       "brief": "20支/扎,800克左右/扎",
-      "categoryId": "catg_8cad838e-f0d4-489f-812c-7c6539fa8a8e",
+      "categoryId": "catg_649a087c-2434-48c3-be6c-203027846c94",
       "id": "prod_b7db611a-ec2d-403e-948c-8689a57e65dc",
       "picture": "/tmp-1-1567648262397"
     },
@@ -130,18 +126,9 @@
       "stock": 6,
       "price": 100,
       "brief": "60cm",
-      "categoryId": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9",
+      "categoryId": "catg_649a087c-2434-48c3-be6c-203027846c94",
       "id": "prod_c6cf808a-10c9-4874-8bdb-f88c9d8c7925",
-      "picture": "/tmp-1-1567648402101"
-    },
-    {
-      "name": "进口鲜花",
-      "stock": 5,
-      "price": 55,
-      "brief": "60cm",
-      "categoryId": "catg_74299c03-1e79-4461-aecb-224e96ccbbd9",
-      "picture": "/tmp-1-1567646639939",
-      "id": "prod_24c5ded5-e822-4476-a01f-64efea178f37"
+      "picture": "/tmp-1-1567756133184"
     }
   ],
   "orders": [

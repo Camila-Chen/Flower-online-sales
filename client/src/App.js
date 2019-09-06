@@ -183,15 +183,6 @@ class App extends PureComponent {
               />
             </div>
 
-            <Cart
-              sum={sum}
-              count={count}
-              addOrder={this.addOrder}
-              changeOrder={this.changeOrder}
-              reduceOrder={this.reduceOrder}
-              orderItems={this.state.orderItems}
-              handleClick={this.handleClick}
-            />
             <hr className="dotted-line" />
             <Transport
               handleChange={this.handleChange}
@@ -205,6 +196,15 @@ class App extends PureComponent {
             />
           </div>
         </div>
+        <Cart
+          sum={sum}
+          count={count}
+          addOrder={this.addOrder}
+          changeOrder={this.changeOrder}
+          reduceOrder={this.reduceOrder}
+          orderItems={this.state.orderItems}
+          handleClick={this.handleClick}
+        />
       </div>
     );
   }

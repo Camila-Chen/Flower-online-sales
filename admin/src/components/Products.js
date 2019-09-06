@@ -62,7 +62,13 @@ class Product extends PureComponent {
           </button>
         </div>
         <div className="products">
-          {this.state.result == 0 ? <p>没有该产品</p> : ""}
+          {this.state.result == 0 ? (
+            <p className="d-flex justify-content-center no-product text-primary">
+              没有该产品
+            </p>
+          ) : (
+            ""
+          )}
           {this.state.result === undefined
             ? this.state.products.map((item, index) => {
                 return (

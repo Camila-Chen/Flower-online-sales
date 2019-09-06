@@ -12,8 +12,8 @@ import ProductsUpdate from "./components/ProductsUpdate";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import { baseUrl } from "./constants";
-// var VConsole = require("vconsole/dist/vconsole.min.js");
-// var vConsole = new VConsole();
+var VConsole = require("vconsole/dist/vconsole.min.js");
+var vConsole = new VConsole();
 axios.defaults.baseURL = baseUrl;
 
 class App extends PureComponent {

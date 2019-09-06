@@ -131,14 +131,14 @@ class ProductsUpdate extends PureComponent {
           <div className="input-group-prepend">
             <span className="input-group-text">产品图片</span>
           </div>
+
           <input
             placeholder="请选择图片"
             name="picture"
             onChange={this._changeValue}
             type="file"
             accept="image/*"
-            capture
-            className="form-control"
+            className="form-control "
           />
         </div>
         <div className="input-group mb-3 add-product">
