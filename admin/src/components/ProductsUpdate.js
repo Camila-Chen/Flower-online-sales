@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import axios from "axios";
 import ProductByCategory from "./ProductByCategory";
+import imageCompression from 'browser-image-compression';
 
 class ProductsUpdate extends PureComponent {
   constructor(props) {
@@ -71,7 +72,7 @@ class ProductsUpdate extends PureComponent {
         });
       })
 
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
         alert(error.message);
       });
@@ -83,8 +84,13 @@ class ProductsUpdate extends PureComponent {
       this.setState({ isClickable: false });
       var data = this.state.picture;
       if (this.state.file !== undefined) {
+        const pic = await imageCompression(this.state.file, {
+          maxSizeMB: 0.5,
+          maxWidthOrHeight: 1280,
+          useWebWorker: true
+        })
         var formData = new FormData();
-        formData.append("file", this.state.file);
+        formData.append("file", pic);
         var response = await axios.post("upload", formData);
         data = response.data;
       }

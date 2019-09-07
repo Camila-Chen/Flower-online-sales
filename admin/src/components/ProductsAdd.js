@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import "../styles/productsAdd.css";
 import axios from "axios";
 import ProductByCategory from "./ProductByCategory";
+import imageCompression from 'browser-image-compression';
 
 class ProductsAdd extends PureComponent {
   constructor(props) {
@@ -54,13 +55,16 @@ class ProductsAdd extends PureComponent {
     }
   };
   handleClick = async e => {
-    debugger;
     e.preventDefault();
     try {
       this.setState({ isClickable: false });
-      console.log(this.state.picture);
+      const pic = await imageCompression(this.state.picture, {
+        maxSizeMB: 0.5,
+        maxWidthOrHeight: 1280,
+        useWebWorker: true
+      })
       var formData = new FormData();
-      formData.append("file", this.state.picture);
+      formData.append("file", pic);
       const { data } = await axios.post("upload", formData);
       await axios.post("/admin/products", {
         name: this.state.name,
