@@ -27,12 +27,14 @@ class Category extends PureComponent {
           );
         })}
         <div className="add">
-          <button
-            type="button"
-            className="btn btn-outline-primary btn-lg  btn-text "
-          >
-            <Link to="/categories/add">添加</Link>
-          </button>
+          <Link to="/categories/add">
+            <button
+              type="button"
+              className="btn btn-outline-primary btn-lg  btn-text "
+            >
+              添加
+            </button>
+          </Link>
         </div>
       </div>
     );

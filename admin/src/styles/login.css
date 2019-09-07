@@ -1,0 +1,109 @@
+.contain {
+    width: 100%;
+    height: 700px;
+    background-image: url("../image/bacg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 10px;
+}
+
+.login {
+    /* background-color: white; */
+    margin-top: 8%;
+    /* margin-left: 30%; */
+
+}
+
+.information {
+    padding: 0 50px;
+    padding-top: 3vh
+}
+
+.title {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+
+    padding-bottom: 20px;
+    /* color: #5e8685 */
+}
+
+.form-group {
+    position: relative;
+}
+
+.little-logo {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 16px;
+    top: 15px;
+}
+
+.user {
+    background-image: url("../image/user.png");
+
+}
+
+.password {
+    background-image: url("../image/password.png");
+
+}
+
+.phone {
+    background-image: url("../image/phone.png");
+
+}
+
+.border {
+    border-radius: 100px;
+    border: 1px solid #e6e6e6;
+}
+
+.login-btn {
+    height: 46px;
+    font-size: 20px;
+    border-radius: 100px;
+    background-color: #5e8685;
+    border-color: #5e8685;
+}
+
+.detail {
+    padding: 10px 0 10px 46px;
+}
+
+.error {
+    position: absolute;
+    background-color: #30a6f5;
+    color: #fff;
+    font-size: 12px;
+    height: 30px;
+    border-radius: 4px;
+    left: 395px;
+    top: 8px;
+    width: 230px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.red {
+    background-color: #ff6161;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.green {
+    background-color: #81c763;
+}
+
+.box {
+    margin-top: 0.5rem;
+}
+
+.login-bg {
+    padding-top: 5vh
+}

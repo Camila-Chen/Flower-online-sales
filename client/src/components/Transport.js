@@ -16,10 +16,10 @@ class Transport extends PureComponent {
   render() {
     return (
       <div>
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
             <h3>购买须知</h3>
-            <p class="lead">
+            <p className="lead">
               1.订单满100起发，外地客户默认顺丰到付，武汉同城客户可到店或自行安排闪送、达达、滴滴上门取货。
               <br />
               <br />
@@ -97,8 +97,9 @@ class Transport extends PureComponent {
                   name="exampleRadios"
                   id="exampleRadios1"
                   value="滴滴"
+                  checked={this.props.value === "滴滴"}
                 />
-                <label class="form-check-label" for="exampleRadios1">
+                <label className="form-check-label" for="exampleRadios1">
                   滴滴
                 </label>
               </div>
@@ -106,6 +107,7 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  checked={this.props.value === "达达"}
                   onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
@@ -113,7 +115,7 @@ class Transport extends PureComponent {
                   id="exampleRadios2"
                   value="达达"
                 />
-                <label class="form-check-label" for="exampleRadios2">
+                <label className="form-check-label" for="exampleRadios2">
                   达达
                 </label>
               </div>
@@ -121,6 +123,7 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  checked={this.props.value === "顺丰"}
                   onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
@@ -128,7 +131,7 @@ class Transport extends PureComponent {
                   id="exampleRadios3"
                   value="顺丰"
                 />
-                <label class="form-check-label" for="exampleRadios3">
+                <label className="form-check-label" for="exampleRadios3">
                   顺丰
                 </label>
               </div>
@@ -136,6 +139,7 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  checked={this.props.value === "货拉拉"}
                   onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
@@ -143,7 +147,7 @@ class Transport extends PureComponent {
                   id="exampleRadios4"
                   value="货拉拉"
                 />
-                <label class="form-check-label" for="exampleRadios4">
+                <label className="form-check-label" for="exampleRadios4">
                   货拉拉
                 </label>
               </div>
@@ -151,6 +155,7 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  checked={this.props.value === "闪送"}
                   onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
@@ -158,7 +163,7 @@ class Transport extends PureComponent {
                   id="exampleRadios5"
                   value="闪送"
                 />
-                <label class="form-check-label" for="exampleRadios5">
+                <label className="form-check-label" for="exampleRadios5">
                   闪送
                 </label>
               </div>
@@ -166,6 +171,7 @@ class Transport extends PureComponent {
             <li className="list-group-item">
               <div className="form-check">
                 <input
+                  checked={this.props.value === "物流"}
                   onChange={this.handleChange}
                   className="form-check-input"
                   type="radio"
@@ -173,7 +179,7 @@ class Transport extends PureComponent {
                   id="exampleRadios6"
                   value="物流"
                 />
-                <label class="form-check-label" for="exampleRadios6">
+                <label className="form-check-label" for="exampleRadios6">
                   物流
                 </label>
               </div>

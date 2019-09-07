@@ -43,6 +43,11 @@ h5 {
 }
 
 .products {
-    height: calc(90vh - 150px);
+    height: calc(90vh - 130px);
     overflow: auto;
+}
+
+.no-product {
+    padding-top: 50%;
+    font-size: 1.3rem
 }

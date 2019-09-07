@@ -16,7 +16,7 @@ class Order extends PureComponent {
     axios
       .get("/admin/orders")
       .then((response, data) => {
-        console.log([response.data]);
+        // console.log([response.data]);
         this.setState({
           orders: response.data
         });
@@ -33,7 +33,6 @@ class Order extends PureComponent {
         <div className="card gap">
           <div className="card-header  ">
             {this.state.orders.map((item, index) => {
-              console.log(item);
               return (
                 <OrderCard
                   key={item.id}

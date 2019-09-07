@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import "../styles/cartCard.css";
+// import { stringify } from "querystring";
 
 class CartCard extends PureComponent {
   constructor(props) {
@@ -10,8 +11,6 @@ class CartCard extends PureComponent {
 
   addClick = () => {
     // debugger;
-    // console.log(this.props.item.number);
-
     this.props.addOrder(this.props.item);
   };
   reduceClick = () => {

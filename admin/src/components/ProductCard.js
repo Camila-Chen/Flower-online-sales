@@ -2,7 +2,9 @@ import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import ProductsDelete from "./ProductsDelete";
 import "../styles/productCard.css";
-import { baseUrl } from '../constants';
+import { baseUrl } from "../constants";
+import Zmage from "react-zmage";
+
 class ProductCard extends PureComponent {
   constructor(props) {
     super(props);
@@ -15,7 +17,7 @@ class ProductCard extends PureComponent {
       <div className="card mb-3 ">
         <div className="row no-gutters">
           <div className="col-sm-3 col-3 suit">
-            <img
+            <Zmage
               className="rosepic img-fluid"
               src={baseUrl + this.props.picture}
               alt="加载中..."

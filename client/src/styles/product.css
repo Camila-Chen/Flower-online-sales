@@ -1,6 +1,7 @@
 .suit {
     margin-top: 5%;
     margin-left: 4%;
+    overflow: auto
 }
 
 .intro {

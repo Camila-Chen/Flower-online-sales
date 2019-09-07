@@ -9,10 +9,13 @@ import CategoriesUpdate from "./components/CategoriesUpdate";
 import CategoriesAdd from "./components/CategoriesAdd";
 import ProductsAdd from "./components/ProductsAdd";
 import ProductsUpdate from "./components/ProductsUpdate";
-import { baseUrl } from './constants';
-// var VConsole = require("vconsole/dist/vconsole.min.js");
-// var vConsole = new VConsole();
+import Home from "./components/Home";
+import Login from "./components/Login";
+import { baseUrl } from "./constants";
+var VConsole = require("vconsole/dist/vconsole.min.js");
+var vConsole = new VConsole();
 axios.defaults.baseURL = baseUrl;
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -25,6 +28,8 @@ class App extends PureComponent {
       <Router>
         <div>
           <Navigation />
+          <Route path="/login" component={Login} />
+          <Route path="/" exact component={Home} />
           <Route path="/categories" exact component={Category} />
           <Route path="/products" exact component={Product} />
           <Route path="/orders" exact component={Order} />

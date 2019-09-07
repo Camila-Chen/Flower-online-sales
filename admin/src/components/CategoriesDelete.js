@@ -22,14 +22,14 @@ class CategoriesDelete extends PureComponent {
           type="button"
           className="btn btn-primary btn-danger"
           data-toggle="modal"
-          data-target="#exampleModalCenter"
+          data-target={`#${this.props.deleteId}`}
         >
           删除
         </button>
 
         <div
           className="modal fade"
-          id="exampleModalCenter"
+          id={this.props.deleteId}
           role="dialog"
           aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true"

@@ -54,30 +54,28 @@ class ProductsAdd extends PureComponent {
     }
   };
   handleClick = async e => {
+    debugger;
     e.preventDefault();
     try {
       this.setState({ isClickable: false });
       console.log(this.state.picture);
-      var formData = new FormData()
-      formData.append('file', this.state.picture)
+      var formData = new FormData();
+      formData.append("file", this.state.picture);
       const { data } = await axios.post("upload", formData);
-      await axios
-        .post("/admin/products", {
-          name: this.state.name,
-          stock: parseInt(this.state.stock),
-          price: parseFloat(this.state.price),
-          brief: this.state.brief,
-          categoryId: this.state.categoryId,
-          picture: data
-        })
-      window.location.href = '/products';
+      await axios.post("/admin/products", {
+        name: this.state.name,
+        stock: parseInt(this.state.stock),
+        price: parseFloat(this.state.price),
+        brief: this.state.brief,
+        categoryId: this.state.categoryId,
+        picture: data
+      });
+      window.location.href = "/products";
     } catch (error) {
       alert(error.message);
     } finally {
       this.setState({ isClickable: true });
     }
-
-
   };
   render() {
     return (
@@ -97,19 +95,20 @@ class ProductsAdd extends PureComponent {
             className="form-control"
           />
         </div>
+
         <div className="input-group mb-3 add-product">
           <div className="input-group-prepend">
             <span className="input-group-text">产品图片</span>
           </div>
+
           <input
             placeholder="请选择图片"
-            name='picture'
+            name="picture"
             required="required"
             onChange={this._changeValue}
             type="file"
             accept="image/*"
-            capture
-            className="form-control"
+            className="form-control "
           />
         </div>
         <div className="input-group mb-3 add-product">
