@@ -1,0 +1,26 @@
+{
+    "categories": [
+        {
+            "name": "进口鲜花",
+            "id": "catg_339bac3d-8020-4d55-b3ad-cf8951fc3f22"
+        },
+        {
+            "name": "基地玫瑰",
+            "id": "catg_d821bb8e-b044-484e-be2b-8274ef8177f8"
+        },
+        {
+            "name": "基地杂花",
+            "id": "catg_6260517f-ee7d-48f9-8390-900e3dbde5b5"
+        },
+        {
+            "name": "恒丰基地鲜花",
+            "id": "catg_649a087c-2434-48c3-be6c-203027846c94"
+        },
+        {
+            "name": "海盛基地鲜花",
+            "id": "catg_dad24ce6-5e84-48ef-beaa-e85951aa42e0"
+        }
+    ],
+    "products": [],
+    "orders": []
+}
