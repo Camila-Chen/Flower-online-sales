@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import ProductsDelete from "./ProductsDelete";
 import "../styles/productCard.css";
-import { baseUrl } from "../constants";
 import Zmage from "react-zmage";
 
 class ProductCard extends PureComponent {
@@ -19,7 +18,7 @@ class ProductCard extends PureComponent {
           <div className="col-sm-3 col-3 suit">
             <Zmage
               className="rosepic img-fluid"
-              src={baseUrl + this.props.picture}
+              src={process.env.REACT_APP_BASE_URL + this.props.picture}
               alt="加载中..."
             />
           </div>

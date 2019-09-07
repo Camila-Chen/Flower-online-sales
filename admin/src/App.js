@@ -11,10 +11,12 @@ import ProductsAdd from "./components/ProductsAdd";
 import ProductsUpdate from "./components/ProductsUpdate";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import { baseUrl } from "./constants";
-var VConsole = require("vconsole/dist/vconsole.min.js");
-var vConsole = new VConsole();
-axios.defaults.baseURL = baseUrl;
+if (process.env.NODE_ENV === 'development') {
+  var VConsole = require("vconsole/dist/vconsole.min.js");
+  new VConsole();
+}
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 class App extends PureComponent {
   constructor(props) {

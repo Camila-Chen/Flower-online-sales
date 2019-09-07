@@ -9,12 +9,13 @@ import axios from "axios";
 import Cart from "./components/Cart";
 import Transport from "./components/Transport";
 import Client from "./components/Client";
-import { baseUrl } from "./constants";
 
-// var VConsole = require("vconsole/dist/vconsole.min.js");
-// var vConsole = new VConsole();
-// axios.defaults.baseURL = "http://192.168.2.72:9000";
-axios.defaults.baseURL = baseUrl;
+if (process.env.NODE_ENV === 'development') {
+  var VConsole = require("vconsole/dist/vconsole.min.js");
+  new VConsole();
+}
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 var count;
 var sum;
@@ -157,10 +158,10 @@ class App extends PureComponent {
   };
 
   render() {
-    count = this.state.orderItems.reduce(function(prev, cur) {
+    count = this.state.orderItems.reduce(function (prev, cur) {
       return cur.number + prev;
     }, 0);
-    sum = this.state.orderItems.reduce(function(prev, cur) {
+    sum = this.state.orderItems.reduce(function (prev, cur) {
       return cur.number * cur.price + prev;
     }, 0);
     // console.log();

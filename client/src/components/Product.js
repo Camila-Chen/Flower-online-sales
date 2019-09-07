@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import "../styles/product.css";
 import Zmage from "react-zmage";
-import { baseUrl } from "../constants";
 
 class Product extends PureComponent {
   constructor(props) {
@@ -32,7 +31,7 @@ class Product extends PureComponent {
           <div className="col-sm-4 col-4 suit ">
             <Zmage
               className="rosepic "
-              src={baseUrl + this.props.picture}
+              src={process.env.REACT_APP_BASE_URL + this.props.picture}
               alt="加载中..."
             />
           </div>
