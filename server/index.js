@@ -12,23 +12,21 @@ const orderCtrl = require("./controllers/orders");
 
 app.use(cors());
 app.use(bodyParser.json());
-// 解析 application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded());
 
-// app.use((req, res, next) => {
-//   if (req.url.match(/\/admin/)) {
-//     try {
-//       const decoded = jwt.verify(req.headers['authorization'], process.env.secret);
-//       req.state = decoded;
-//       return next();
-//     } catch (err) {
-//       console.log('err')
-//       res.status(403).send('您没有权限，请登录')
-//     }
-//   } else {
-//     return next()
-//   }
-// })
+app.use((req, res, next) => {
+  if (req.url.match(/\/admin/)) {
+    try {
+      const decoded = jwt.verify(req.headers['authorization'], process.env.secret);
+      req.state = decoded;
+      return next();
+    } catch (err) {
+      res.status(403).send('您没有权限，请登录')
+    }
+  } else {
+    return next()
+  }
+})
 
 const asyncMiddleware = fn => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next);
@@ -43,7 +41,7 @@ app.use(fileUpload({
   preserveExtension: true,
 }));
 
-app.post('/upload', function (req, res) {
+app.post('/admin/upload', function (req, res) {
   if (Object.keys(req.files).length == 0) {
     return res.status(400).send('No files were uploaded.');
   }
@@ -90,6 +88,14 @@ app.post(
 // category
 app.get(
   "/admin/categories",
+  asyncMiddleware(async (req, res) => {
+    const cates = await catgCtrl.getCategories();
+    res.send(cates);
+  })
+);
+
+app.get(
+  "/public/categories",
   asyncMiddleware(async (req, res) => {
     const cates = await catgCtrl.getCategories();
     res.send(cates);
@@ -145,7 +151,7 @@ app.get(
 );
 
 app.get(
-  "/admin/products/category/:id",
+  "/public/products/category/:id",
   asyncMiddleware(async (req, res) => {
     let product = await prodCtrl.getProductsByCategory(req.params.id);
     res.send(product);
@@ -179,7 +185,7 @@ app.delete(
 
 //orders
 app.post(
-  "/admin/orders",
+  "/public/orders",
   asyncMiddleware(async (req, res) => {
     await orderCtrl.addOrder(req.body);
     res.send(true);

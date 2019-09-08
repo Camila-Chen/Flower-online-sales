@@ -13,13 +13,13 @@ class Card extends PureComponent {
 
   componentDidMount() {
     axios
-      .get("/admin/products/category/" + this.props.openId)
+      .get("/public/products/category/" + this.props.openId)
       .then(response => {
         this.setState({
           products: response.data
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }

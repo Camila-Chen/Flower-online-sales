@@ -1,15 +1,24 @@
 import React, { PureComponent } from "react";
 import "../styles/login.css";
+import { login } from '../actions/authorize';
 class Login extends PureComponent {
-  constructor(props) {
-    super(props);
 
-    this.state = {};
+  state = { username: '', password: '' }
+
+  handleClick = async (e) => {
+    e.preventDefault();
+    try {
+      await login(this.state);
+    } catch (error) {
+      this.setState({
+        error: '用户名或密码出错'
+      })
+    }
   }
 
   render() {
     return (
-      <div className="contain container-fluid img-fluid">
+      <div className="home-contain container-fluid img-fluid">
         <img
           src={require("../image/head-picture.jpeg")}
           alt="加载中..."
@@ -18,34 +27,34 @@ class Login extends PureComponent {
         <div className=" img-fluid">
           <div className="login rounded">
             <div className="information">
-              {/* <h2 className=" title text-center text-light">用户登录</h2> */}
-              <form>
+              <form onSubmit={this.handleClick}>
                 <div className="form-group">
                   <div className="little-logo user"></div>
                   <input
                     type="text"
                     required
                     className="form-control form-control-lg border detail control1"
-                    id="exampleFormControlInput1"
                     placeholder="用户名"
+                    onChange={(e) => this.setState({ username: e.target.value })}
                   />
                 </div>
                 <div className="form-group">
                   <div className="little-logo password"></div>
                   <input
                     type="password"
+                    required
                     className="form-control form-control-lg border detail control2 "
-                    id="passwordFormControlInput"
                     placeholder="密码"
+                    onChange={(e) => this.setState({ password: e.target.value })}
                   ></input>
                 </div>
 
                 <button
-                  type="submit"
                   className="btn login-btn w-100 text-white"
                 >
                   确认登录
                 </button>
+                {this.state.error && <p style={{ color: 'red', textAlign: 'center' }}>{this.state.error}</p>}
               </form>
             </div>
           </div>

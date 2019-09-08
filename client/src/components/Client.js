@@ -89,7 +89,7 @@ class Client extends PureComponent {
     e.preventDefault();
     this.setState({ isClickable: false });
     axios
-      .post("/admin/orders", {
+      .post("/public/orders", {
         sum: this.props.sum,
         count: this.props.count,
         clientName: this.state.clientName,
@@ -102,8 +102,8 @@ class Client extends PureComponent {
         orderItems: this.props.orderItems,
         value: this.props.value
       })
-      .then(() => {})
-      .catch(function(error) {
+      .then(() => { })
+      .catch(function (error) {
         alert(error.message);
       });
 

@@ -32,7 +32,7 @@ class CategoryList extends React.Component {
   }
   componentDidMount() {
     axios
-      .get("/admin/categories")
+      .get("/public/categories")
       .then((response, data) => {
         // console.log([response.data]);
         this.setState({
@@ -41,7 +41,7 @@ class CategoryList extends React.Component {
         // console.log(response);
       })
 
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
