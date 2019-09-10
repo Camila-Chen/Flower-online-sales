@@ -16,9 +16,7 @@ function getAllOrders() {
 
 async function addOrder(val) {
   val.id = `order_${uuidv4()}`;
-  //获取日期与时间
-  var myDate = new Date();
-  val.myDate = myDate.toLocaleString();
+  val.myDate = new Date();
   val.order = outTradeNo;
   return db.orders.push(val).write();
 }

@@ -14,7 +14,7 @@ class ProductsAdd extends PureComponent {
       stock: "",
       price: "",
       brief: "",
-      categoryId: "catg_cef9dc0b-c72f-4b78-8d3e-deeb265cccdb"
+      categoryId: ""
     };
   }
 
@@ -56,6 +56,10 @@ class ProductsAdd extends PureComponent {
   };
   handleClick = async e => {
     e.preventDefault();
+    if (this.state.categoryId === "") {
+      alert("请选择商品类别");
+      return;
+    }
     try {
       this.setState({ isClickable: false });
       const pic = await imageCompression(this.state.picture, {
@@ -74,6 +78,7 @@ class ProductsAdd extends PureComponent {
         categoryId: this.state.categoryId,
         picture: data
       });
+
       window.location.href = "/products";
     } catch (error) {
       alert(error.message);
@@ -133,7 +138,10 @@ class ProductsAdd extends PureComponent {
             className="form-control"
           />
         </div>
-        <ProductByCategory _changeValue={this._changeValue} />
+        <ProductByCategory
+          _changeValue={this._changeValue}
+          handleClick={this.handleClick}
+        />
         <div className="input-group mb-3 add-product">
           <div className="input-group-prepend">
             <span className="input-group-text">产品价格</span>
