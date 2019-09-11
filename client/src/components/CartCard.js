@@ -10,7 +10,6 @@ class CartCard extends PureComponent {
   }
 
   addClick = () => {
-    // debugger;
     this.props.addOrder(this.props.item);
   };
   reduceClick = () => {
@@ -21,14 +20,11 @@ class CartCard extends PureComponent {
     this.props.changeOrder(this.props.item, e.target.value);
   };
   render() {
-    // debugger;
-    // console.log(this.props.orderItems);
     var found = this.props.orderItems.find(element => {
       return element.id === this.props.item.id;
     });
     var number = found !== undefined ? found.number : 0;
 
-    // debugger;
     return (
       <div>
         {this.props.item.categoryName && (
@@ -62,9 +58,7 @@ class CartCard extends PureComponent {
               className="button-input"
               onChange={this.handleChange}
               // max={this.props.item.stock}
-              value={
-                number <= this.props.item.stock ? number : this.props.item.stock
-              }
+              value={number}
             />
             <button
               type="button"

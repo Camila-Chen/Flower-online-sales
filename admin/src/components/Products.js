@@ -51,14 +51,14 @@ class Product extends PureComponent {
             onChange={this.handleChange}
             className="form-control col-7 col-sm-7"
             type="search"
-            placeholder="Search"
+            placeholder="搜索产品"
             aria-label="Search"
           />
           <button
             onClick={this.handleClick}
             className="btn btn-outline-success search-btn col-sm-3 col-3 "
           >
-            Search
+            搜索
           </button>
         </div>
         <div className="products">

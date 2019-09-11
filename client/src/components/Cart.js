@@ -49,7 +49,9 @@ class Cart extends PureComponent {
             <path d="M0 0h24v24H0z" fill="none" />
           </svg>
           <div className="subscript">
-            <span className="badge  badge-danger">{this.props.count}</span>
+            <span className="badge  badge-danger">
+              {parseInt(this.props.count)}
+            </span>
           </div>
         </div>
 
@@ -77,8 +79,6 @@ class Cart extends PureComponent {
               </div>
               <div className="modal-body modal-contain">
                 {this.props.orderItems.map((item, index) => {
-                  // console.log(this.props.orderItems);
-
                   return (
                     <CartCard
                       orderItems={this.props.orderItems}

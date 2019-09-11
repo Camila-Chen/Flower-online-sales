@@ -192,7 +192,6 @@ class ProductsUpdate extends PureComponent {
             <span className="input-group-text">产品描述</span>
           </div>
           <textarea
-            required
             placeholder="请输入商品的简要描述"
             autoComplete="off"
             onChange={this._changeValue}

@@ -41,7 +41,7 @@ class CategoryList extends React.Component {
         // console.log(response);
       })
 
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error);
       });
   }

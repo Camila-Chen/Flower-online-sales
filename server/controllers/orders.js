@@ -16,7 +16,7 @@ function getAllOrders() {
 
 async function addOrder(val) {
   val.id = `order_${uuidv4()}`;
-  val.myDate = new Date();
+  val.myDate = new Date().toISOString();
   val.order = outTradeNo;
   return db.orders.push(val).write();
 }

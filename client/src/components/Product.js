@@ -9,9 +9,12 @@ class Product extends PureComponent {
 
   addClick = () => {
     this.props.addOrder(this.props.item, this.props.categoryName);
+    // console.log(this.props.Index);
   };
 
   reduceClick = () => {
+    // debugger;
+
     this.props.reduceOrder(this.props.item);
   };
   handleChange = e => {
@@ -48,7 +51,7 @@ class Product extends PureComponent {
               <p className="price">¥ {this.props.item.price}</p>
             </div>
             <div className="row-stock">
-              <p className="stock ">库存{this.props.item.stock}件</p>
+              <p className="stock ">库存{this.props.item.stock}扎</p>
             </div>
           </div>
 
@@ -66,9 +69,7 @@ class Product extends PureComponent {
               className="button-input"
               style={{ width: 40 }}
               onChange={this.handleChange}
-              value={
-                number <= this.props.item.stock ? number : this.props.item.stock
-              }
+              value={number}
             />
 
             <button

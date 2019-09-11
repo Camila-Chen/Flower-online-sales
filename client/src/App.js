@@ -10,7 +10,7 @@ import Cart from "./components/Cart";
 import Transport from "./components/Transport";
 import Client from "./components/Client";
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   var VConsole = require("vconsole/dist/vconsole.min.js");
   new VConsole();
 }
@@ -22,11 +22,16 @@ var sum;
 var orderItems = localStorage.getItem("cart");
 var transport = localStorage.getItem("transport");
 
+orderItems = orderItems ? JSON.parse(orderItems) : [];
+orderItems.forEach(element => {
+  element.number = element.number || 0;
+});
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      orderItems: orderItems ? JSON.parse(orderItems) : [],
+      orderItems: orderItems,
       value: transport
     };
     // console.log(count);
@@ -43,14 +48,13 @@ class App extends PureComponent {
   };
 
   addOrder = (product, categoryName) => {
-    // debugger;
-
     if (this.state.orderItems.some(el => el.id === product.id)) {
       var found = this.state.orderItems.find(element => {
         return element.id === product.id;
       });
-      found.number = found.number + 1;
-
+      found.number = (parseInt(found.number) || 0) + 1;
+      found.number = Math.min(found.number, product.stock);
+      // debugger;
       this.setState(
         {
           orderItems: [...this.state.orderItems]
@@ -71,11 +75,9 @@ class App extends PureComponent {
       }
       const items = [...this.state.orderItems];
       items.push(item);
-      // console.log(items);
       this.setState(
         {
           orderItems: items
-          // categoryName: categoryName
         },
         () =>
           window.localStorage.setItem(
@@ -86,14 +88,15 @@ class App extends PureComponent {
     }
   };
 
-  reduceOrder = (product, productIndex) => {
+  reduceOrder = (product, itemIndex) => {
     // debugger;
     this.state.orderItems.some(el => el.id === product.id);
     var found = this.state.orderItems.find(element => {
       return element.id === product.id;
     });
     if (found.number > 1) {
-      found.number = found.number - 1;
+      found.number = parseInt(found.number) - 1;
+
       this.setState(
         {
           orderItems: [...this.state.orderItems]
@@ -105,10 +108,22 @@ class App extends PureComponent {
           )
       );
     } else {
+      // debugger;
       const item = product;
-      item.productIndex = productIndex;
       const items = [...this.state.orderItems];
-      items.splice(productIndex, 1);
+      function check(element) {
+        return element.id === product.id;
+      }
+      // console.log(this.state.orderItems.findIndex(check));
+      itemIndex = this.state.orderItems.findIndex(check);
+      items.splice(itemIndex, 1);
+
+      if (
+        item.categoryName !== "" &&
+        items.some(el => el.categoryId === item.categoryId)
+      ) {
+        items[itemIndex].categoryName = item.categoryName;
+      }
       this.setState(
         {
           orderItems: items
@@ -123,12 +138,14 @@ class App extends PureComponent {
   };
 
   changeOrder = (product, n) => {
-    // debugger;
     if (this.state.orderItems.some(el => el.id === product.id)) {
       var found = this.state.orderItems.find(element => {
         return element.id === product.id;
       });
       found.number = n;
+      if (n !== "") {
+        found.number = Math.min(parseInt(found.number) || 0, product.stock);
+      }
       this.setState(
         {
           orderItems: [...this.state.orderItems]
@@ -142,6 +159,9 @@ class App extends PureComponent {
     } else {
       const item = product;
       item.number = n;
+      if (n !== "") {
+        item.number = Math.min(parseInt(item.number) || 0, product.stock);
+      }
       const items = [...this.state.orderItems];
       items.push(item);
       this.setState(
@@ -158,13 +178,13 @@ class App extends PureComponent {
   };
 
   render() {
-    count = this.state.orderItems.reduce(function (prev, cur) {
-      return cur.number + prev;
+    count = this.state.orderItems.reduce(function(prev, cur) {
+      return (parseInt(cur.number) || 0) + parseInt(prev);
     }, 0);
-    sum = this.state.orderItems.reduce(function (prev, cur) {
+    console.log(count);
+    sum = this.state.orderItems.reduce(function(prev, cur) {
       return cur.number * cur.price + prev;
     }, 0);
-    // console.log();
 
     return (
       <div>

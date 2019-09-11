@@ -23,7 +23,6 @@ class Client extends PureComponent {
       clientText: ""
     };
   }
-
   _changeValue = e => {
     switch (e.target.name) {
       case "clientName":
@@ -102,8 +101,8 @@ class Client extends PureComponent {
         orderItems: this.props.orderItems,
         value: this.props.value
       })
-      .then(() => { })
-      .catch(function (error) {
+      .then(() => {})
+      .catch(function(error) {
         alert(error.message);
       });
 

@@ -11,32 +11,70 @@ import ProductsAdd from "./components/ProductsAdd";
 import ProductsUpdate from "./components/ProductsUpdate";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from "./components/PrivateRoute";
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   var VConsole = require("vconsole/dist/vconsole.min.js");
   new VConsole();
 }
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-axios.defaults.headers.common['authorization'] = window.localStorage.getItem('token');
+axios.defaults.headers.common["authorization"] = window.localStorage.getItem(
+  "token"
+);
 
 class App extends PureComponent {
   render() {
-    const { authorize } = this.props
+    const { authorize } = this.props;
     return (
       <Router>
         <div>
           {authorize && <Navigation />}
-          <Route path="/login" component={authorize ? () => <Redirect to={{ pathname: '/' }} /> : Login} />
+          <Route
+            path="/login"
+            component={
+              authorize ? () => <Redirect to={{ pathname: "/" }} /> : Login
+            }
+          />
           <PrivateRoute authorize={authorize} path="/" exact component={Home} />
-          <PrivateRoute authorize={authorize} path="/categories" exact component={Category} />
-          <PrivateRoute authorize={authorize} path="/products" exact component={Product} />
-          <PrivateRoute authorize={authorize} path="/orders" exact component={Order} />
-          <PrivateRoute authorize={authorize} path="/categories/update/:id" component={CategoriesUpdate} />
-          <PrivateRoute authorize={authorize} path="/categories/add" component={CategoriesAdd} />
-          <PrivateRoute authorize={authorize} path="/products/add" component={ProductsAdd} />
-          <PrivateRoute authorize={authorize} path="/products/update/:id" component={ProductsUpdate} />
+          <PrivateRoute
+            authorize={authorize}
+            path="/categories"
+            exact
+            component={Category}
+          />
+          <PrivateRoute
+            authorize={authorize}
+            path="/products"
+            exact
+            component={Product}
+          />
+          <PrivateRoute
+            authorize={authorize}
+            path="/orders"
+            exact
+            component={Order}
+          />
+          <PrivateRoute
+            authorize={authorize}
+            path="/categories/update/:id"
+            component={CategoriesUpdate}
+          />
+          <PrivateRoute
+            authorize={authorize}
+            path="/categories/add"
+            component={CategoriesAdd}
+          />
+          <PrivateRoute
+            authorize={authorize}
+            path="/products/add"
+            component={ProductsAdd}
+          />
+          <PrivateRoute
+            authorize={authorize}
+            path="/products/update/:id"
+            component={ProductsUpdate}
+          />
         </div>
       </Router>
     );

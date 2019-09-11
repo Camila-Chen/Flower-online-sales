@@ -35,7 +35,7 @@ class ProductCard extends PureComponent {
               <p className="price">¥ {this.props.price}.00</p>
             </div>
             <div className="row-stock">
-              <p className="stock ">库存 {this.props.stock} 件</p>
+              <p className="stock ">库存 {this.props.stock} 扎</p>
             </div>
           </div>
 
