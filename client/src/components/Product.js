@@ -3,13 +3,8 @@ import "../styles/product.css";
 import Zmage from "react-zmage";
 
 class Product extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   addClick = () => {
     this.props.addOrder(this.props.item, this.props.categoryName);
-    // console.log(this.props.Index);
   };
 
   reduceClick = () => {

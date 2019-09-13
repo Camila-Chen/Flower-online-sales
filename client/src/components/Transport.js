@@ -99,7 +99,7 @@ class Transport extends PureComponent {
                   value="滴滴"
                   checked={this.props.value === "滴滴"}
                 />
-                <label className="form-check-label" for="exampleRadios1">
+                <label className="form-check-label" htmlFor="exampleRadios1">
                   滴滴
                 </label>
               </div>
@@ -115,7 +115,7 @@ class Transport extends PureComponent {
                   id="exampleRadios2"
                   value="达达"
                 />
-                <label className="form-check-label" for="exampleRadios2">
+                <label className="form-check-label" htmlFor="exampleRadios2">
                   达达
                 </label>
               </div>
@@ -131,7 +131,7 @@ class Transport extends PureComponent {
                   id="exampleRadios3"
                   value="顺丰"
                 />
-                <label className="form-check-label" for="exampleRadios3">
+                <label className="form-check-label" htmlFor="exampleRadios3">
                   顺丰
                 </label>
               </div>
@@ -147,7 +147,7 @@ class Transport extends PureComponent {
                   id="exampleRadios4"
                   value="货拉拉"
                 />
-                <label className="form-check-label" for="exampleRadios4">
+                <label className="form-check-label" htmlFor="exampleRadios4">
                   货拉拉
                 </label>
               </div>
@@ -163,7 +163,7 @@ class Transport extends PureComponent {
                   id="exampleRadios5"
                   value="闪送"
                 />
-                <label className="form-check-label" for="exampleRadios5">
+                <label className="form-check-label" htmlFor="exampleRadios5">
                   闪送
                 </label>
               </div>
@@ -179,7 +179,7 @@ class Transport extends PureComponent {
                   id="exampleRadios6"
                   value="物流"
                 />
-                <label className="form-check-label" for="exampleRadios6">
+                <label className="form-check-label" htmlFor="exampleRadios6">
                   物流
                 </label>
               </div>

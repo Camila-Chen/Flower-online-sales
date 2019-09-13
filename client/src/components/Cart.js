@@ -4,20 +4,17 @@ import CartCard from "./CartCard";
 function disableScrolling() {
   var x = window.scrollX;
   var y = window.scrollY;
-  window.onscroll = function(e) {
+  window.onscroll = function (e) {
     e.preventDefault();
     window.scrollTo(x, y);
   };
 }
 
 function enableScrolling() {
-  window.onscroll = function() {};
+  window.onscroll = function () { };
 }
 
 class Cart extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     window.$("#exampleModalCenter").on("hide.bs.modal", () => {

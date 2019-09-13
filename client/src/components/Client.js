@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import "../styles/client.css";
-import axios from "axios";
+import * as wxpay from '../actions/wxpay';
+
 var name = localStorage.getItem("Name");
 var Tel = localStorage.getItem("Tel");
 var Province = localStorage.getItem("Province");
@@ -13,7 +14,6 @@ class Client extends PureComponent {
     super(props);
     this.state = {
       isClickable: true,
-
       clientName: name,
       clientTel: Tel,
       clientProvince: Province,
@@ -84,13 +84,11 @@ class Client extends PureComponent {
     }
   };
 
-  handleClick = e => {
+  handleClick = async e => {
     e.preventDefault();
-    this.setState({ isClickable: false });
-    axios
-      .post("/public/orders", {
-        sum: this.props.sum,
-        count: this.props.count,
+    try {
+      this.setState({ isClickable: false });
+      await wxpay.pay({
         clientName: this.state.clientName,
         clientTel: this.state.clientTel,
         clientProvince: this.state.clientProvince,
@@ -98,15 +96,25 @@ class Client extends PureComponent {
         clientArea: this.state.clientArea,
         clientAddress: this.state.clientAddress,
         clientText: this.state.clientText,
-        orderItems: this.props.orderItems,
-        value: this.props.value
+        orderItems: this.props.orderItems.filter(a => a.number > 0)
       })
-      .then(() => {})
-      .catch(function(error) {
-        alert(error.message);
-      });
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      this.setState({ isClickable: true });
+    }
 
-    localStorage.removeItem("cart");
+
+    // axios
+    //   .post("/public/orders", {
+
+    //   })
+    //   .then(() => { })
+    //   .catch(function (error) {
+    //     alert(error.message);
+    //   });
+
+    // localStorage.removeItem("cart");
   };
 
   render() {
@@ -114,7 +122,7 @@ class Client extends PureComponent {
       <div>
         <form onSubmit={this.handleClick}>
           <div className="form-group client-information">
-            <label for="exampleInput1" className="client-name">
+            <label htmlFor="exampleInput1" className="client-name">
               姓名
             </label>
 
@@ -131,10 +139,10 @@ class Client extends PureComponent {
             />
           </div>
           <div className="form-group client-information d-flex flex-column">
-            <label for="exampleInput2" className="client-name">
+            <label htmlFor="exampleInput2" className="client-name">
               手机号码
             </label>
-            <label for="exampleInput2" className="client-title">
+            <label htmlFor="exampleInput2" className="client-title">
               请准确填写联系方式，以免耽误配送签收！
             </label>
 
@@ -198,7 +206,7 @@ class Client extends PureComponent {
               <div className="form-group client-information ">
                 <label
                   className="client-name "
-                  for="exampleFormControlTextarea1"
+                  htmlFor="exampleFormControlTextarea1"
                 >
                   备注
                 </label>

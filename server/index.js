@@ -2,13 +2,18 @@ var express = require("express");
 var path = require('path');
 var app = express();
 var bodyParser = require("body-parser");
+var crypto = require('crypto');
+var axios = require('axios');
 const jwt = require("jsonwebtoken");
+const assert = require("assert");
 require("dotenv").config();
 var cors = require("cors");
 const fileUpload = require('express-fileupload');
 const catgCtrl = require("./controllers/categories");
 const prodCtrl = require("./controllers/products");
 const orderCtrl = require("./controllers/orders");
+const wechatCtrl = require("./controllers/wechat");
+const wechatHelper = require('./utils/wechat.helper')
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -199,6 +204,80 @@ app.get(
     res.send(orders);
   })
 );
+
+// wechat
+app.get(
+  "/public/wechat/token",
+  asyncMiddleware(async (req, res) => {
+    const token = process.env.wechat_token;
+    const { signature, echostr, timestamp, nonce } = req.query;
+    const str = [timestamp, nonce, token].sort().join('');
+    const hash = crypto.createHash('sha1').update(str).digest('hex');
+    if (hash === signature) {
+      res.send(echostr)
+      console.log(echostr)
+    } else {
+      res.status(401).send('验签失败')
+    }
+  })
+)
+
+app.get('/public/wechat/auth', asyncMiddleware(async (req, res) => {
+  const { code } = req.query;
+  try {
+    const url = `https://api.weixin.qq.com/sns/oauth2/access_token?appid=${process.env.wechat_app_id}&secret=${process.env.wechat_app_secret}&code=${code}&grant_type=authorization_code`;
+    const { data: { access_token, openid } } = await axios.get(url);
+    const { data } = await axios.get(`https://api.weixin.qq.com/sns/userinfo?access_token=${access_token}&openid=${openid}`);
+    res.send(data)
+  } catch (error) {
+    res.status(400).send(error.response && error.response.data && error.response.data.message || error.message);
+  }
+}))
+
+
+var access_token = {}
+var jsapi_key = {}
+
+app.get("/public/wechat/jsapi",
+  asyncMiddleware(async (req, res) => {
+    try {
+      if (jsapi_key.ticket && jsapi_key.expire_time + 7100 > new Date().getTime()) {
+        res.send(wechatHelper.signJsApiKey(jsapi_key.ticket))
+      }
+      if (!(access_token.token && access_token.expire_time + 7100 > new Date().getTime())) {
+        const url = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${process.env.wechat_app_id}&secret=${process.env.wechat_app_secret}`;
+        access_token.token = (await axios.get(url)).data.access_token
+        access_token.expire_time = new Date().getTime()
+      }
+      const { data } = await axios.get(`https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=${access_token.token}&type=jsapi`);
+      jsapi_key.ticket = data.ticket
+      jsapi_key.expire_time = new Date().getTime()
+      if (data.errcode === 0) {
+        res.send(wechatHelper.signJsApiKey(data.ticket))
+      } else {
+        throw (data.errmsg)
+      }
+    } catch (error) {
+      console.log(error)
+      res.status(500).send('授权失败')
+    }
+  }))
+
+app.post('/public/wechat/pay', asyncMiddleware(async (req, res) => {
+  const { openid } = req.body
+  assert(openid, "no_openid")
+  const data = await wechatCtrl.requestPrepay({
+    body: '免费赠送IPhone X',
+    out_trade_no: '453234533123',
+    nonce_str: wechatHelper.createNonceStr(),
+    spbill_create_ip: '192.168.1.45',  //一般可以从客户端获取用户IP,
+    total_fee: '1',                    //单位为分
+    openid,
+    timestamp: wechatHelper.createTimeStamp()
+  })
+  console.log(data)
+  res.send(data)
+}))
 
 app.listen(process.env.port, () =>
   console.log(`flower app listening on port ${process.env.port}!`)

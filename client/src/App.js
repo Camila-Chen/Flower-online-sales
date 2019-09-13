@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 
 import "./App.css";
+// eslint-disable-next-line
 import distpicker from "distpicker";
 import CategoryList from "./components/CategoryList";
 import Tacking from "./components/Tacking";
@@ -9,13 +10,19 @@ import axios from "axios";
 import Cart from "./components/Cart";
 import Transport from "./components/Transport";
 import Client from "./components/Client";
-
+import * as wxpay from './actions/wxpay';
 if (process.env.NODE_ENV === "development") {
-  var VConsole = require("vconsole/dist/vconsole.min.js");
-  new VConsole();
+  // var VConsole = require("vconsole/dist/vconsole.min.js");
+  // new VConsole();
 }
 
+
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+
+wxpay.configure();
+if (process.env.NODE_ENV !== "development") {
+  wxpay.getUserInfo();
+}
 
 var count;
 var sum;
@@ -34,11 +41,9 @@ class App extends PureComponent {
       orderItems: orderItems,
       value: transport
     };
-    // console.log(count);
   }
 
   handleChange = e => {
-    // console.log(e);
     this.setState(
       {
         value: e
@@ -108,13 +113,11 @@ class App extends PureComponent {
           )
       );
     } else {
-      // debugger;
       const item = product;
       const items = [...this.state.orderItems];
       function check(element) {
         return element.id === product.id;
       }
-      // console.log(this.state.orderItems.findIndex(check));
       itemIndex = this.state.orderItems.findIndex(check);
       items.splice(itemIndex, 1);
 
@@ -178,11 +181,10 @@ class App extends PureComponent {
   };
 
   render() {
-    count = this.state.orderItems.reduce(function(prev, cur) {
+    count = this.state.orderItems.reduce(function (prev, cur) {
       return (parseInt(cur.number) || 0) + parseInt(prev);
     }, 0);
-    console.log(count);
-    sum = this.state.orderItems.reduce(function(prev, cur) {
+    sum = this.state.orderItems.reduce(function (prev, cur) {
       return cur.number * cur.price + prev;
     }, 0);
 

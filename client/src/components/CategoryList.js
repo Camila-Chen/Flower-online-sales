@@ -33,15 +33,13 @@ class CategoryList extends React.Component {
   componentDidMount() {
     axios
       .get("/public/categories")
-      .then((response, data) => {
-        // console.log([response.data]);
+      .then((response) => {
         this.setState({
           categories: response.data
         });
-        // console.log(response);
       })
 
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
