@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "postinstall": "cp init.json models/db.json"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
