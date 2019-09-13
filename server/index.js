@@ -246,7 +246,11 @@ app.get("/public/wechat/jsapi",
       }
       if (!(access_token.token && access_token.expire_time + 7100 > new Date().getTime())) {
         const url = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${process.env.wechat_app_id}&secret=${process.env.wechat_app_secret}`;
-        access_token.token = (await axios.get(url)).data.access_token
+        accessData = (await axios.get(url)).data
+        if (accessData.errcode) {
+          throw (new Error(accessData.errmsg))
+        }
+        access_token.token = accessData.access_token
         access_token.expire_time = new Date().getTime()
       }
       const { data } = await axios.get(`https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=${access_token.token}&type=jsapi`);

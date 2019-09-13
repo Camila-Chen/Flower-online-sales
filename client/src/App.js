@@ -11,9 +11,9 @@ import Cart from "./components/Cart";
 import Transport from "./components/Transport";
 import Client from "./components/Client";
 import * as wxpay from './actions/wxpay';
-if (process.env.NODE_ENV === "development") {
-  // var VConsole = require("vconsole/dist/vconsole.min.js");
-  // new VConsole();
+if (process.env.NODE_ENV !== "development") {
+  var VConsole = require("vconsole/dist/vconsole.min.js");
+  new VConsole();
 }
 
 
