@@ -298,8 +298,7 @@ app.post('/public/wechat/pay', asyncMiddleware(async (req, res) => {
 }))
 
 app.post('/wechat/notify_url', function (req, res) {
-  console.log('wechat', JSON.stringify(req))
-  const xmlObj = req.body || {}
+  const xmlObj = req.body.xml
   let string = ''
   const keys = Object.keys(xmlObj)
   keys.sort()
