@@ -297,7 +297,7 @@ app.post('/public/wechat/pay', asyncMiddleware(async (req, res) => {
   res.send(data)
 }))
 
-app.post('/wechat/notify_url', function (req, res) {
+app.post('/wechat/notify_url', asyncMiddleware(async (req, res) => {
   const xmlObj = req.body.xml
   let string = ''
   const keys = Object.keys(xmlObj)
@@ -315,7 +315,7 @@ app.post('/wechat/notify_url', function (req, res) {
   }
   res.setHeader('content-type', 'application/xml')
   res.send('<xml><return_code><![CDATA[' + success ? 'SUCCESS' : 'FAIL' + ']]></return_code><return_msg><![CDATA[' + success ? 'OK' : 'FAIL' + ']]></return_msg></xml>')
-})
+}))
 
 app.listen(process.env.port, () =>
   console.log(`flower app listening on port ${process.env.port}!`)

@@ -14,11 +14,16 @@ class OrderCard extends PureComponent {
         <div className="card ">
           <div className="OrderHead d-flex ">
             <div className="HeadLeft p-2">
-              <p className="StoreName">雨轩鲜花</p>
+              <p className="StoreName">
+                <span>{item.clientNickname}</span>
+                <img
+                  src={item.headimgurl}
+                  alt='头像'
+                  style={{ width: 30, marginLeft: '10px' }} /></p>
               <p className="StoreName text-muted">{item.orderNumber}</p>
             </div>
             <div className="HeadRight ml-auto p-2">
-              <p className=" text-danger">{item.status}</p>
+              <p className={item.status === '已支付' ? 'text-success' : 'text-danger'}>{item.status}</p>
             </div>
           </div>
           {item.orderItem && item.orderItem.map((i) => {
