@@ -18,6 +18,15 @@ const wechatHelper = require('./utils/wechat.helper')
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+require('body-parser-xml')(bodyParser)
+app.use(bodyParser.xml({
+  limit: '1MB',
+  xmlParseOptions: {
+    normalize: true,
+    normalizeTags: true,
+    explicitArray: false
+  }
+}))
 
 app.use((req, res, next) => {
   if (req.url.match(/\/admin/)) {
@@ -285,20 +294,33 @@ app.post('/public/wechat/pay', asyncMiddleware(async (req, res) => {
     openid: order.openid,
     timestamp: wechatHelper.createTimeStamp()
   })
-  console.log(data)
   res.send(data)
 }))
 
 app.post('/wechat/notify_url', function (req, res) {
-  console.log('wechat', req.body)
-  wechatHelper.parser.parseString(req.body, function (err, result) {
-    var wechatPayResult = result.xml
-    console.log('wechat', wechatPayResult)
-    var success = wechatPayResult.return_code[0] == 'SUCCESS'
-
-    res.setHeader('content-type', 'application/xml')
-    res.send('<xml><return_code><![CDATA[' + success ? 'SUCCESS' : 'FAIL' + ']]></return_code><return_msg><![CDATA[' + success ? 'OK' : 'FAIL' + ']]></return_msg></xml>')
+  console.log('wechat', JSON.stringify(req))
+  const xmlObj = req.body || {}
+  let string = ''
+  const keys = Object.keys(xmlObj)
+  keys.sort()
+  keys.forEach(key => {
+    if (xmlObj[key] && key !== 'sign') {
+      string = string + key + '=' + xmlObj[key] + '&'
+    }
   })
+  string = string + 'key=' + process.env.wechat_pay_key
+  const localSign = crypto.createHash('md5').update(string, 'utf8').digest('hex').toUpperCase()
+  const success = localSign === xmlObj.sign
+  res.setHeader('content-type', 'application/xml')
+  res.send('<xml><return_code><![CDATA[' + success ? 'SUCCESS' : 'FAIL' + ']]></return_code><return_msg><![CDATA[' + success ? 'OK' : 'FAIL' + ']]></return_msg></xml>')
+  // wechatHelper.parser.parseString(req.body, function (err, result) {
+  //   var wechatPayResult = result.xml
+  //   console.log('wechat', wechatPayResult)
+  //   var success = wechatPayResult.return_code[0] == 'SUCCESS'
+
+  //   res.setHeader('content-type', 'application/xml')
+  //   res.send('<xml><return_code><![CDATA[' + success ? 'SUCCESS' : 'FAIL' + ']]></return_code><return_msg><![CDATA[' + success ? 'OK' : 'FAIL' + ']]></return_msg></xml>')
+  // })
 
 })
 
