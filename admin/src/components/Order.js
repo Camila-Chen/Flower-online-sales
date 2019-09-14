@@ -22,7 +22,7 @@ class Order extends PureComponent {
         });
       })
 
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -36,19 +36,7 @@ class Order extends PureComponent {
               return (
                 <OrderCard
                   key={item.id}
-                  orderNumber={item.order}
-                  orderItem={item.orderItems}
-                  count={item.count}
-                  sum={item.sum}
-                  date={item.myDate}
-                  clientName={item.clientName}
-                  clientTel={item.clientTel}
-                  clientProvince={item.clientProvince}
-                  clientCity={item.clientCity}
-                  clientArea={item.clientArea}
-                  clientAddress={item.clientAddress}
-                  clientText={item.clientText}
-                  value={item.value}
+                  item={item}
                 />
               );
             })}

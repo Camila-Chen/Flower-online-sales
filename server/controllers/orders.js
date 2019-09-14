@@ -8,7 +8,7 @@ function getAllOrders() {
 
 async function addOrder(val) {
   val.id = `order_${uuidv4()}`;
-  val.myDate = new Date().toISOString();
+  val.createdOn = new Date().toISOString();
   val.orderNumber = helper.createOutTradeNumber();
   val.orderItems = val.orderItems.filter(a => a.number > 0)
   val.count = val.orderItems.reduce((a, c) => a + c.number, 0)

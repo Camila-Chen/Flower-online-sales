@@ -8,54 +8,55 @@ class OrderCard extends PureComponent {
   }
 
   render() {
+    const { item = {} } = this.props
     return (
       <div className="OrderContain">
         <div className="card ">
           <div className="OrderHead d-flex ">
             <div className="HeadLeft p-2">
               <p className="StoreName">雨轩鲜花</p>
-              <p className="StoreName text-muted">{this.props.orderNumber}</p>
+              <p className="StoreName text-muted">{item.orderNumber}</p>
             </div>
             <div className="HeadRight ml-auto p-2">
-              <p className=" text-danger">{this.props.status}</p>
+              <p className=" text-danger">{item.status}</p>
             </div>
           </div>
-          {this.props.orderItem.map((item, index) => {
+          {item.orderItem && item.orderItem.map((i) => {
             return (
               <OrderBody
-                key={item.id}
-                name={item.name}
-                price={item.price}
-                number={item.number}
+                key={i.id}
+                name={i.name}
+                price={i.price}
+                number={i.number}
               />
             );
           })}
           <div className="order-bk bg-primary text-light">
             <div className="d-flex justify-content-between">
-              <p className="orderCount ">共{this.props.count}件商品</p>
-              <p className="orderSum">订单金额 ¥ {this.props.sum}</p>
+              <p className="orderCount ">共{item.count}件商品</p>
+              <p className="orderSum">订单金额 ¥ {item.sum}</p>
             </div>
             <div className="order-time d-flex justify-content-between">
               <p className="orderTime">订单创建时间</p>
-              <p className="date">{this.props.date}</p>
+              <p className="date">{item.createdOn}</p>
             </div>
           </div>
           <div className="card-footer text-muted ">
             <div className="d-flex justify-content-between ">
-              <p className="clientName">{this.props.clientName}</p>
-              <p className="clientTel">{this.props.clientTel}</p>
-              <p className="clientName">{this.props.clientWechat}</p>
+              <p className="clientName">{item.clientName}</p>
+              <p className="clientTel">{item.clientTel}</p>
+              <p className="clientName">{item.clientWechat}</p>
             </div>
             <div>
               <p className="clientTel">
-                {this.props.clientProvince}
-                {this.props.clientCity}
-                {this.props.clientArea}
-                {this.props.clientAddress}
+                {item.clientProvince}
+                {item.clientCity}
+                {item.clientArea}
+                {item.clientAddress}
               </p>
             </div>
             <div>
-              <p>{this.props.clientText}</p>
+              <p>{item.clientText}</p>
             </div>
           </div>
         </div>
