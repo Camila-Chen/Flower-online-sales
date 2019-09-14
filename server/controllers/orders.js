@@ -19,7 +19,15 @@ async function addOrder(val) {
   return val;
 }
 
+async function orderPaid(val) {
+  return db.orders
+    .find({ orderNumber: val.out_trade_no })
+    .assign({ status: '已支付', transactionId: val.transaction_id, sum: xmlObj.total_fee / 100 })
+    .write();
+}
+
 module.exports = {
   getAllOrders,
-  addOrder
+  addOrder,
+  orderPaid
 };

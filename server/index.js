@@ -309,8 +309,10 @@ app.post('/wechat/notify_url', function (req, res) {
   })
   string = string + 'key=' + process.env.wechat_pay_key
   const localSign = crypto.createHash('md5').update(string, 'utf8').digest('hex').toUpperCase()
-  const success = localSign === xmlObj.sign
-  console.log(success, localSign, xmlObj.sign)
+  const success = localSign === xmlObj.sign && xmlObj.result_code === 'SUCCESS' && xmlObj.return_code === 'SUCCESS'
+  if (success) {
+    orderCtrl.orderPaid(xmlObj)
+  }
   res.setHeader('content-type', 'application/xml')
   res.send('<xml><return_code><![CDATA[' + success ? 'SUCCESS' : 'FAIL' + ']]></return_code><return_msg><![CDATA[' + success ? 'OK' : 'FAIL' + ']]></return_msg></xml>')
 })
