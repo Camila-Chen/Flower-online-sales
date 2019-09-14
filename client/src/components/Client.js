@@ -103,18 +103,6 @@ class Client extends PureComponent {
     } finally {
       this.setState({ isClickable: true });
     }
-
-
-    // axios
-    //   .post("/public/orders", {
-
-    //   })
-    //   .then(() => { })
-    //   .catch(function (error) {
-    //     alert(error.message);
-    //   });
-
-    // localStorage.removeItem("cart");
   };
 
   render() {
@@ -224,7 +212,7 @@ class Client extends PureComponent {
             disabled={!this.state.isClickable}
             className="btn btn-success btn-lg btn-block order-btn text-light"
           >
-            确认下单
+            {this.state.isClickable ? '确认下单' : '正在生成订单...'}
           </button>
         </form>
       </div>

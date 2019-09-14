@@ -25,7 +25,17 @@ export async function configure() {
 export async function pay(order) {
     try {
         if (user && user.openid) {
-            const config = (await axios.post('/public/wechat/pay', { order, openid: user.openid })).data
+            let cip = '27.19.181.89'
+            try {
+                cip = (await axios.get('http://pv.sohu.com/cityjson?ie=utf-8')).data.cip
+            } catch (error) {
+
+            }
+            order.openid = user.openid
+            order.spbill_create_ip = cip
+            order.clientNickname = user.nickname
+            order.headimgurl = user.headimgurl
+            const config = (await axios.post('/public/wechat/pay', { order })).data
             window.wx.chooseWXPay({
                 timestamp: config.timeStamp,
                 nonceStr: config.nonceStr,
@@ -33,10 +43,15 @@ export async function pay(order) {
                 signType: 'MD5',
                 paySign: config.paySign,
                 success: function (res) {
+                    localStorage.removeItem("cart");
                     alert('订单支付成功，我们会尽快给您发货，有任何问题请随时联系，多谢！')
                     setTimeout(() => {
                         window.location.reload()
                     }, 3000);
+                },
+                // 支付失败回调函数
+                fail: function (res) {
+                    alert(`支付失败:${JSON.stringify(res)}`)
                 }
             })
         } else {
@@ -51,6 +66,12 @@ export async function pay(order) {
 
 export async function getUserInfo() {
     var code = getParamValue('code')
+    if (code) {
+        window.sessionStorage.setItem('code', code)
+        window.location.href = '/'
+        return
+    }
+    code = window.sessionStorage.getItem('code')
     try {
         if (!code) {
             throw (new Error('no code'))

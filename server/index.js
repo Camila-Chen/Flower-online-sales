@@ -268,15 +268,18 @@ app.get("/public/wechat/jsapi",
   }))
 
 app.post('/public/wechat/pay', asyncMiddleware(async (req, res) => {
-  const { openid } = req.body
-  assert(openid, "no_openid")
+  let { order } = req.body
+  assert(order && order.openid, "no_openid")
+
+  order = await orderCtrl.addOrder(order)
+
   const data = await wechatCtrl.requestPrepay({
-    body: '免费赠送IPhone X',
-    out_trade_no: '453234533123',
+    body: order.body,
+    out_trade_no: order.orderNumber,
     nonce_str: wechatHelper.createNonceStr(),
-    spbill_create_ip: '192.168.1.45',  //一般可以从客户端获取用户IP,
-    total_fee: '1',                    //单位为分
-    openid,
+    spbill_create_ip: order.spbill_create_ip,  //一般可以从客户端获取用户IP,
+    total_fee: order.sum * 100,                    //单位为分
+    openid: order.openid,
     timestamp: wechatHelper.createTimeStamp()
   })
   console.log(data)

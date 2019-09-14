@@ -182,7 +182,7 @@ class ProductsAdd extends PureComponent {
             disabled={!this.state.isClickable}
             className="btn btn-primary btn-lg  btn-text"
           >
-            保存
+            {this.state.isClickable ? '保存' : '正在保存中...'}
           </button>
         </div>
       </form>

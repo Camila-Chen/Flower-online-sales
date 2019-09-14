@@ -1,15 +1,7 @@
 var db = require("../models");
 const uuidv4 = require("uuid/v4");
-var outTradeNo = ""; //订单号
-for (
-  var i = 0;
-  i < 6;
-  i++ //6位随机数，用以加在时间戳后面。
-) {
-  outTradeNo += Math.floor(Math.random() * 10);
-}
-outTradeNo = new Date().getTime() + outTradeNo;
-
+const helper = require('../utils/wechat.helper')
+const Decimal = require('decimal.js-light')
 function getAllOrders() {
   return db.orders.value() || [];
 }
@@ -17,8 +9,14 @@ function getAllOrders() {
 async function addOrder(val) {
   val.id = `order_${uuidv4()}`;
   val.myDate = new Date().toISOString();
-  val.order = outTradeNo;
-  return db.orders.push(val).write();
+  val.orderNumber = helper.createOutTradeNumber();
+  val.orderItems = val.orderItems.filter(a => a.number > 0)
+  val.count = val.orderItems.reduce((a, c) => a + c.number, 0)
+  val.sum = val.orderItems.reduce((a, c) => new Decimal(c.price).times(c.number).add(a).toNumber(), 0)
+  val.body = `雨轩鲜花——您购买了总共${val.count}件商品，价值${val.sum}元`
+  val.status = '未支付'
+  await db.orders.push(val).write();
+  return val;
 }
 
 module.exports = {

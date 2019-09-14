@@ -40,6 +40,18 @@ module.exports = {
         })
 
     },
+    createOutTradeNumber: function () {
+        var outTradeNo = ""; //订单号
+        for (
+            var i = 0;
+            i < 3;
+            i++ //3位随机数，用以加在时间戳后面。
+        ) {
+            outTradeNo += Math.floor(Math.random() * 10);
+        }
+        outTradeNo = Math.floor(new Date().getTime() / 1000) + outTradeNo;
+        return outTradeNo;
+    },
     signJsApiKey: function (jsapi_ticket) {
         var ret = {
             jsapi_ticket: jsapi_ticket,

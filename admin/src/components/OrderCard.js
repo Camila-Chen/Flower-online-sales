@@ -4,7 +4,6 @@ import OrderBody from "./OrderBody";
 class OrderCard extends PureComponent {
   constructor(props) {
     super(props);
-
     this.state = {};
   }
 
@@ -18,7 +17,7 @@ class OrderCard extends PureComponent {
               <p className="StoreName text-muted">{this.props.orderNumber}</p>
             </div>
             <div className="HeadRight ml-auto p-2">
-              <p className=" text-danger">未支付</p>
+              <p className=" text-danger">{this.props.status}</p>
             </div>
           </div>
           {this.props.orderItem.map((item, index) => {
@@ -43,9 +42,9 @@ class OrderCard extends PureComponent {
           </div>
           <div className="card-footer text-muted ">
             <div className="d-flex justify-content-between ">
-              <p className=" clientName  ">{this.props.clientName}</p>
-              <p className="  clientTel">{this.props.clientTel}</p>
-              <p className=" clientName  ">{this.props.value}</p>
+              <p className="clientName">{this.props.clientName}</p>
+              <p className="clientTel">{this.props.clientTel}</p>
+              <p className="clientName">{this.props.clientWechat}</p>
             </div>
             <div>
               <p className="clientTel">

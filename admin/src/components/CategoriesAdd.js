@@ -29,7 +29,7 @@ class CategoriesAdd extends PureComponent {
         });
         window.location.href = "/categories";
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
         alert(error.message);
       });
@@ -51,7 +51,6 @@ class CategoriesAdd extends PureComponent {
             className="form-control"
             id="basic-url"
             value={this.state.name}
-            // aria-describedby="basic-addon3"
           />
         </div>
         <div className="save">
@@ -61,7 +60,7 @@ class CategoriesAdd extends PureComponent {
             type="button"
             className="btn btn-primary btn-lg  btn-text"
           >
-            保存
+            {this.state.isClickable ? '保存' : '正在保存中...'}
           </button>
         </div>
       </div>
