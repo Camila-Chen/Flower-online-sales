@@ -290,6 +290,7 @@ app.post('/public/wechat/pay', asyncMiddleware(async (req, res) => {
 }))
 
 app.post('/wechat/notify_url', function (req, res) {
+  console.log('wechat', req.body)
   wechatHelper.parser.parseString(req.body, function (err, result) {
     var wechatPayResult = result.xml
     console.log('wechat', wechatPayResult)
