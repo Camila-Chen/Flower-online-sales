@@ -97,6 +97,29 @@ class Client extends PureComponent {
         clientAddress: this.state.clientAddress,
         clientText: this.state.clientText,
         orderItems: this.props.orderItems.filter(a => a.number > 0)
+      }, {
+        success: (res) => {
+          localStorage.removeItem("cart");
+          this.setState({
+            successMsg: '订单支付成功，我们会尽快给您安排发货，有任何问题请联系客服，谢谢！'
+          }, () => {
+            setTimeout(() => {
+              this.setState({
+                successMsg: ''
+              });
+            }, 3000);
+          })
+          this.props.cleanCart && this.props.cleanCart()
+        },
+        fail: (res) => {
+          this.setState({
+            errorMsg: '订单支付失败，若有任何问题请联系客服，谢谢！'
+          }, () => {
+            this.setState({
+              errorMsg: ''
+            })
+          })
+        }
       })
     } catch (error) {
       alert(error.message);
@@ -214,6 +237,8 @@ class Client extends PureComponent {
           >
             {this.state.isClickable ? '确认下单' : '正在生成订单...'}
           </button>
+          <p className='text-success'>{this.state.successMsg}</p>
+          <p className='text-danger'>{this.state.errorMsg}</p>
         </form>
       </div>
     );

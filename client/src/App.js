@@ -212,6 +212,7 @@ class App extends PureComponent {
             <Client
               orderItems={this.state.orderItems}
               sum={sum}
+              cleanCart={() => this.setState({ orderItems: [] })}
               count={count}
               value={this.state.value}
             />

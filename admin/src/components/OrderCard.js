@@ -43,7 +43,7 @@ class OrderCard extends PureComponent {
             </div>
             <div className="order-time d-flex justify-content-between">
               <p className="orderTime">订单创建时间</p>
-              <p className="date">{item.createdOn}</p>
+              <p className="date">{new Date(item.createdOn).toLocaleString()}</p>
             </div>
           </div>
           <div className="card-footer text-muted ">

@@ -25,7 +25,7 @@ export async function configure() {
     });
 }
 
-export async function pay(order) {
+export async function pay(order, callback) {
     try {
         if (user && user.openid) {
             let cip = '27.19.181.89'
@@ -45,14 +45,8 @@ export async function pay(order) {
                 package: config.package,
                 signType: 'MD5',
                 paySign: config.paySign,
-                success: function (res) {
-                    localStorage.removeItem("cart");
-                    alert('订单支付成功，我们会尽快给您发货，有任何问题请随时联系，多谢！')
-                },
-                // 支付失败回调函数
-                fail: function (res) {
-                    alert(`支付失败:${JSON.stringify(res)}`)
-                }
+                success: callback.success,
+                fail: callback.fail
             })
         } else {
             getUserInfo()

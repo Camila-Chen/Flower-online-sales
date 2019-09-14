@@ -3,7 +3,7 @@ const uuidv4 = require("uuid/v4");
 const helper = require('../utils/wechat.helper')
 const Decimal = require('decimal.js-light')
 function getAllOrders() {
-  return db.orders.value() || [];
+  return (db.orders.value() || []).sort((a, b) => a > b ? -1 : 1);
 }
 
 async function addOrder(val) {
