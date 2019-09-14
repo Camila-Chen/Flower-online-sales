@@ -289,6 +289,18 @@ app.post('/public/wechat/pay', asyncMiddleware(async (req, res) => {
   res.send(data)
 }))
 
+app.post('/wechat/notify_url', function (req, res) {
+  wechatHelper.parser.parseString(req.body, function (err, result) {
+    var wechatPayResult = result.xml
+    console.log('wechat', wechatPayResult)
+    var success = wechatPayResult.return_code[0] == 'SUCCESS'
+
+    res.setHeader('content-type', 'application/xml')
+    res.send('<xml><return_code><![CDATA[' + success ? 'SUCCESS' : 'FAIL' + ']]></return_code><return_msg><![CDATA[' + success ? 'OK' : 'FAIL' + ']]></return_msg></xml>')
+  })
+
+})
+
 app.listen(process.env.port, () =>
   console.log(`flower app listening on port ${process.env.port}!`)
 );
