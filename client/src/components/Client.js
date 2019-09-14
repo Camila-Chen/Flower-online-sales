@@ -231,14 +231,14 @@ class Client extends PureComponent {
               </div>
             </div>
           </div>
+          <p className='text-success paid-message'>{this.state.successMsg}</p>
+          <p className='text-danger paid-message'>{this.state.errorMsg}</p>
           <button
             disabled={!this.state.isClickable}
             className="btn btn-success btn-lg btn-block order-btn text-light"
           >
             {this.state.isClickable ? '确认下单' : '正在生成订单...'}
           </button>
-          <p className='text-success'>{this.state.successMsg}</p>
-          <p className='text-danger'>{this.state.errorMsg}</p>
         </form>
       </div>
     );
