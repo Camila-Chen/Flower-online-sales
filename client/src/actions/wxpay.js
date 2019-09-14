@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { getParamValue } from './helper';
-
-export let user;
+let user
+try {
+    user = JSON.parse(window.sessionStorage.getItem('user'))
+} catch (error) {
+}
 
 export async function configure() {
     const config = (await axios.get('/public/wechat/jsapi')).data
@@ -45,9 +48,6 @@ export async function pay(order) {
                 success: function (res) {
                     localStorage.removeItem("cart");
                     alert('订单支付成功，我们会尽快给您发货，有任何问题请随时联系，多谢！')
-                    setTimeout(() => {
-                        window.location.reload()
-                    }, 3000);
                 },
                 // 支付失败回调函数
                 fail: function (res) {
@@ -66,17 +66,18 @@ export async function pay(order) {
 
 export async function getUserInfo() {
     var code = getParamValue('code')
-    if (code) {
-        window.sessionStorage.setItem('code', code)
-        window.location.href = '/'
-        return
-    }
-    code = window.sessionStorage.getItem('code')
     try {
-        if (!code) {
-            throw (new Error('no code'))
+        if (code) {
+            user = (await axios.get('/public/wechat/auth', { params: { code } })).data
+            window.sessionStorage.setItem('user', JSON.stringify(user))
+            window.location.href = window.location.origin
+            return
+        } else {
+            if (!(user && user.openid)) {
+                throw (new Error('no user'))
+            }
         }
-        user = (await axios.get('/public/wechat/auth', { params: { code } })).data
+
     } catch (error) {
         window.location.href = process.env.REACT_APP_REDIRECT_WECHAT
     }

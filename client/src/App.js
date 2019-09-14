@@ -59,7 +59,6 @@ class App extends PureComponent {
       });
       found.number = (parseInt(found.number) || 0) + 1;
       found.number = Math.min(found.number, product.stock);
-      // debugger;
       this.setState(
         {
           orderItems: [...this.state.orderItems]
@@ -94,7 +93,6 @@ class App extends PureComponent {
   };
 
   reduceOrder = (product, itemIndex) => {
-    // debugger;
     this.state.orderItems.some(el => el.id === product.id);
     var found = this.state.orderItems.find(element => {
       return element.id === product.id;

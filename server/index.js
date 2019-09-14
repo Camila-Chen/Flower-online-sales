@@ -228,6 +228,9 @@ app.get('/public/wechat/auth', asyncMiddleware(async (req, res) => {
     const url = `https://api.weixin.qq.com/sns/oauth2/access_token?appid=${process.env.wechat_app_id}&secret=${process.env.wechat_app_secret}&code=${code}&grant_type=authorization_code`;
     const { data: { access_token, openid } } = await axios.get(url);
     const { data } = await axios.get(`https://api.weixin.qq.com/sns/userinfo?access_token=${access_token}&openid=${openid}`);
+    if (data.errcode) {
+      throw new Error('获取用户权限失败:' + data.errmsg)
+    }
     res.send(data)
   } catch (error) {
     res.status(400).send(error.response && error.response.data && error.response.data.message || error.message);
