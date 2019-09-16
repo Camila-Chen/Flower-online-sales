@@ -86,6 +86,11 @@ class Client extends PureComponent {
 
   handleClick = async e => {
     e.preventDefault();
+    const orderItems = this.props.orderItems.filter(a => a.number > 0)
+    if (orderItems.length < 1) {
+      alert('请选购有效的商品')
+      return
+    }
     try {
       this.setState({ isClickable: false });
       await wxpay.pay({
