@@ -27,11 +27,10 @@ class Product extends PureComponent {
       <div className="card mb-3 ">
         <div className="row no-gutters">
           <div className="col-sm-4 col-4 suit ">
-            <Zmage
-              className="rosepic "
-              src={process.env.REACT_APP_BASE_URL + this.props.picture}
-              alt="加载中..."
-            />
+            <img
+              className="rosepic"
+              src={process.env.REACT_APP_THUMB_URL + this.props.picture} alt='加载'
+              onClick={() => Zmage.browsing({ src: process.env.REACT_APP_ORIGIN_URL + this.props.picture, alt: '加载中...' })} />
           </div>
           <div className="col-sm-7 col-7 ">
             <div className="card-body">
