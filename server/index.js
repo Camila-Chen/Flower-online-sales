@@ -63,7 +63,8 @@ app.post('/admin/upload', function (req, res) {
   res.send(req.files.file.tempFilePath.replace(path.resolve(__dirname, './tmp/'), ''))
 });
 app.use(express.static('tmp'))
-
+// app.use('/origin', express.static('tmp'))
+app.use('/thumbnail', express.static('thumbnail'))
 // Admin
 
 app.get(
