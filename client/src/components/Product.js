@@ -29,7 +29,8 @@ class Product extends PureComponent {
           <div className="col-sm-4 col-4 suit ">
             <img
               className="rosepic"
-              src={process.env.REACT_APP_THUMB_URL + this.props.picture} alt='加载'
+              browsing={false}
+              src={process.env.REACT_APP_THUMB_URL + this.props.picture + '.jpg'} alt='加载中...'
               onClick={() => Zmage.browsing({ src: process.env.REACT_APP_ORIGIN_URL + this.props.picture, alt: '加载中...' })} />
           </div>
           <div className="col-sm-7 col-7 ">
