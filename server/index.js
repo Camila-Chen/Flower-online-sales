@@ -16,7 +16,6 @@ const prodCtrl = require("./controllers/products");
 const orderCtrl = require("./controllers/orders");
 const wechatCtrl = require("./controllers/wechat");
 const wechatHelper = require("./utils/wechat.helper");
-const sharp = require("sharp");
 
 app.use(cors());
 app.use(bodyParser.json());
