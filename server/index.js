@@ -384,7 +384,6 @@ app.post(
     if (success) {
       await orderCtrl.orderPaid(xmlObj);
     }
-    res.setHeader("content-type", "application/xml");
     res.send(
       "<xml><return_code><![CDATA[" + success
         ? "SUCCESS"
