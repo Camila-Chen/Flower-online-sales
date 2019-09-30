@@ -70,6 +70,7 @@ class ProductsAdd extends PureComponent {
       var formData = new FormData();
       formData.append("file", pic);
       const { data } = await axios.post("admin/upload", formData);
+      console.log(data);
       await axios.post("/admin/products", {
         name: this.state.name,
         stock: parseInt(this.state.stock),
@@ -182,7 +183,7 @@ class ProductsAdd extends PureComponent {
             disabled={!this.state.isClickable}
             className="btn btn-primary btn-lg  btn-text"
           >
-            {this.state.isClickable ? '保存' : '正在保存中...'}
+            {this.state.isClickable ? "保存" : "正在保存中..."}
           </button>
         </div>
       </form>

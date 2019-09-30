@@ -18,7 +18,6 @@ async function updateProduct(val) {
 }
 
 async function deleteProduct(id) {
-  console.log(id);
   return db.products.remove({ id }).write();
 }
 

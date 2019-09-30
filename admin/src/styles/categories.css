@@ -18,3 +18,8 @@
     color: #007bff;
     border-color: dodgerblue
 }
+
+#categories {
+    height: calc(90vh - 110px);
+    overflow: auto;
+}
