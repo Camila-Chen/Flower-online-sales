@@ -10,7 +10,7 @@
     "jquery": "^3.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.0",
+    "react-scripts": "5.0.1",
     "react-zmage": "^0.8.5",
     "zico": "^1.5.1"
   },
